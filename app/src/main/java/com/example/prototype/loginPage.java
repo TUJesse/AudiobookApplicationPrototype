@@ -21,6 +21,8 @@ public class loginPage extends AppCompatActivity {
     TextView emailAddress;
     TextView password;
     ProgressBar progressBar;
+    TextView directToRegister;
+
 
     Button loginButton;
 
@@ -32,6 +34,7 @@ public class loginPage extends AppCompatActivity {
 
         emailAddress = (TextView) findViewById(R.id.emailAddress);
         password = (TextView) findViewById(R.id.password);
+        directToRegister = (TextView) findViewById(R.id.registerText);
         //progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         loginButton = (Button) findViewById(R.id.loginBtn);
@@ -42,6 +45,19 @@ public class loginPage extends AppCompatActivity {
                 login();
             }
         });
+
+        directToRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerRedirect();
+            }
+        });
+    }
+
+    public void registerRedirect(){
+        Intent switchActivityIntent = new Intent(this, RegisterPage.class);
+        startActivity(switchActivityIntent);
+        finish();
     }
 
     public void login(){

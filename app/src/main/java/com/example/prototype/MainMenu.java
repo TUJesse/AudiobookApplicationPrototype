@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainMenu extends AppCompatActivity {
+
+    Button logOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,6 +21,7 @@ public class MainMenu extends AppCompatActivity {
         Button bookOne = (Button)this.findViewById(R.id.bookOne);
         Button bookTwo = (Button)this.findViewById(R.id.bookTwo);
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
+        logOut = (Button)this.findViewById(R.id.logOut);
 
         bookOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +43,20 @@ public class MainMenu extends AppCompatActivity {
                 switchTtsBook();
             }
         });
+
+    logOut.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            logOutOfApp();
+        }
+    });
+    }
+
+    private void logOutOfApp(){
+        FirebaseAuth.getInstance().signOut();
+        Intent switchActivityIntent = new Intent(this, loginPage.class);
+        startActivity(switchActivityIntent);
+        finish();
     }
 
     private void switchBookOne(){

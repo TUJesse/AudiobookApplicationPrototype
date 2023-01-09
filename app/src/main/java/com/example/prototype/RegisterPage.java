@@ -114,5 +114,6 @@ public class RegisterPage extends AppCompatActivity {
     private void loginRedirect(){
         Intent switchActivityIntent = new Intent(this, loginPage.class);
         startActivity(switchActivityIntent);
+        finish();
     }
 }
