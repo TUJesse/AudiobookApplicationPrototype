@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class BookTwoActivity extends AppCompatActivity {
@@ -17,11 +18,14 @@ public class BookTwoActivity extends AppCompatActivity {
     int current_index = 0;
     TextView txtView;
     TextView pageNumberView;
+    TextView titleView;
+    ImageButton bookmarkButton;
     int page1;
     int page2;
     int page3;
     int page4;
     int page5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +45,15 @@ public class BookTwoActivity extends AppCompatActivity {
         pages = new int[] {page1, page2, page3, page4, page5};
 
         txtView = (TextView) findViewById(R.id.textDisplayBook2);
-        pageNumberView = (TextView)findViewById(R.id.bookTwoPageNumber);
+        pageNumberView = (TextView)this.findViewById(R.id.bookTwoPageNumber);
+        titleView = (TextView)this.findViewById(R.id.bookTwoTitle);
         sounds = new int[] {R.raw.princess_rose_and_the_golden_bird1, R.raw.princess_rose_and_the_golden_bird2,
                 R.raw.princess_rose_and_the_golden_bird3, R.raw.princess_rose_and_the_golden_bird4, R.raw.princess_rose_and_the_golden_bird5};
 
         pageNumberView.setText(pageNumbers[current_index]);
         soundTest = MediaPlayer.create(this, sounds[current_index]);
         txtView.setText(pages[current_index]);
+        bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
         Button playButton = (Button)this.findViewById(R.id.playButtonBook2);
         Button pauseButton = (Button)this.findViewById(R.id.pauseButtonBook2);
         Button stopButton = (Button)this.findViewById(R.id.stopButtonBook2);
@@ -104,6 +110,13 @@ public class BookTwoActivity extends AppCompatActivity {
 
             }
 
+        });
+
+        bookmarkButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveBookmark();
+            }
         });
     }
 
@@ -215,17 +228,17 @@ public class BookTwoActivity extends AppCompatActivity {
                 }
 
             });
-
-
-
         }
         soundTest.start();
     }
 
     private void play2() {
         soundTest.start();
+    }
 
-
+    void saveBookmark (){
+        String bookTitle = titleView.getText().toString();
+        String pageNumber = pageNumberView.getText().toString();
     }
 
 }

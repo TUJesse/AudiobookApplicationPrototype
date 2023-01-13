@@ -92,21 +92,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addBookmarkButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toTopOf="@+id/nextButtonBook2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/stopButtonBook2"
-        app:layout_constraintTop_toBottomOf="@+id/textDisplayBook2"
-        app:srcCompat="@android:drawable/ic_menu_add" />
-
     <TextView
         android:id="@+id/bookTwoPageNumber"
         android:layout_width="wrap_content"
@@ -118,6 +103,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bookTwoTitle" />
+
+    <ImageButton
+        android:id="@+id/addBookmarkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/nextButtonBook2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stopButtonBook2"
+        app:layout_constraintTop_toBottomOf="@+id/textDisplayBook2"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
