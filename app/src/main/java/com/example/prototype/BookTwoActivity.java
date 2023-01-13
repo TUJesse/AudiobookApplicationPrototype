@@ -13,8 +13,10 @@ public class BookTwoActivity extends AppCompatActivity {
     MediaPlayer soundTest;
     int [] sounds;
     int [] pages;
+    String [] pageNumbers = new String[5];
     int current_index = 0;
     TextView txtView;
+    TextView pageNumberView;
     int page1;
     int page2;
     int page3;
@@ -32,12 +34,18 @@ public class BookTwoActivity extends AppCompatActivity {
         page4 = (R.string.Princess_rose_and_the_golden_bird_p4);
         page5 = (R.string.Princess_rose_and_the_golden_bird_p5);
 
+        for (int i = 0; i < pageNumbers.length; i ++){
+            pageNumbers[i] = "page "+ (i+1);
+        }
+
         pages = new int[] {page1, page2, page3, page4, page5};
 
         txtView = (TextView) findViewById(R.id.textDisplayBook2);
+        pageNumberView = (TextView)findViewById(R.id.bookTwoPageNumber);
         sounds = new int[] {R.raw.princess_rose_and_the_golden_bird1, R.raw.princess_rose_and_the_golden_bird2,
                 R.raw.princess_rose_and_the_golden_bird3, R.raw.princess_rose_and_the_golden_bird4, R.raw.princess_rose_and_the_golden_bird5};
 
+        pageNumberView.setText(pageNumbers[current_index]);
         soundTest = MediaPlayer.create(this, sounds[current_index]);
         txtView.setText(pages[current_index]);
         Button playButton = (Button)this.findViewById(R.id.playButtonBook2);
@@ -116,6 +124,7 @@ public class BookTwoActivity extends AppCompatActivity {
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
+            pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -134,6 +143,7 @@ public class BookTwoActivity extends AppCompatActivity {
             soundTest.stop();
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
+            pageNumberView.setText(pageNumbers[current_index]);
         }
         soundTest.start();
 
@@ -147,6 +157,7 @@ public class BookTwoActivity extends AppCompatActivity {
             current_index++;
 
             txtView.setText(pages[current_index]);
+            pageNumberView.setText(pageNumbers[current_index]);
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -173,6 +184,7 @@ public class BookTwoActivity extends AppCompatActivity {
         if (current_index > 0) {
             current_index--;
             txtView.setText(pages[current_index]);
+            pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
 
@@ -191,6 +203,7 @@ public class BookTwoActivity extends AppCompatActivity {
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
+            pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
