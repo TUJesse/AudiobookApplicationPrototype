@@ -1,5 +1,6 @@
 package com.example.prototype;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
 
 public class BookTwoActivity extends AppCompatActivity {
     MediaPlayer soundTest;
@@ -239,6 +245,31 @@ public class BookTwoActivity extends AppCompatActivity {
     void saveBookmark (){
         String bookTitle = titleView.getText().toString();
         String pageNumber = pageNumberView.getText().toString();
+
+        Bookmark bookmark = new Bookmark();
+        bookmark.setBookTitle(bookTitle);
+        bookmark.setPageNumber(pageNumber);
+        bookmark.setTimestamp(Timestamp.now());
+
+        saveBookmarkToFirebase(bookmark);
     }
+
+    void saveBookmarkToFirebase(Bookmark bookmark){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForBookmarks().document();
+
+        documentReference.set(bookmark).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(BookTwoActivity.this,"Bookmark added successfully");
+                }else {
+                    Utility.showToast(BookTwoActivity.this,"Bookmark failed");
+
+                }
+            }
+        });
+    }
+
 
 }

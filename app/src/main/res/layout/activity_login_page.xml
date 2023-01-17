@@ -18,12 +18,15 @@
     </TextView>
 
     <EditText
+        android:id="@+id/emailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/emailAddress"
         android:layout_below="@+id/signIn"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="Email"
-        android:layout_margin="10dp"
         android:padding="10dp">
 
     </EditText>
