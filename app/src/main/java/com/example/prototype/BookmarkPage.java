@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.Query;
@@ -31,6 +35,7 @@ public class BookmarkPage extends AppCompatActivity {
             public void onClick(View view) {
                 showMenu();
                 //setRecyclerView();
+
             }
         });
     }
@@ -63,5 +68,28 @@ public class BookmarkPage extends AppCompatActivity {
     protected void onResume(){
         super.onResume();
         bookmarkAdapter.notifyDataSetChanged();
+    }
+
+    public void popUpMenu(View view, String Book){
+        PopupMenu popupMenu = new PopupMenu(BookmarkPage.this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_bookmark, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+
+                if (menuItem.getItemId() == R.id.goToBookmarkedPage) {
+                    if (Book.equals("Princess Rose And The Golden Bird")) {
+                        //Intent switchActivityIntent = new Intent(this, BookTwoActivity.class);
+                        //startActivity(switchActivityIntent);
+                    }
+
+                }
+
+                return true;
+            }
+
+            });
+
     }
 }
