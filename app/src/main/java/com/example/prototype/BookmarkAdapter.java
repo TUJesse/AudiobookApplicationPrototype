@@ -42,7 +42,7 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
 
         holder.itemView.setOnClickListener((view) ->{
             String docId = this.getSnapshots().getSnapshot(position).getId();
-            showPopupMenu(view, bookmark.getBookTitle(), docId);
+            showPopupMenu(view, bookmark.getBookTitle(), docId, bookmark.getPageNumber());
         });
     }
 
@@ -67,7 +67,7 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
         }
     }
 
-    private void showPopupMenu(View view, String Book, String docID){
+    private void showPopupMenu(View view, String Book, String docID, String pageNumber){
         PopupMenu popupMenu = new PopupMenu(context, view);
         popupMenu.getMenuInflater().inflate(R.menu.popup_menu_bookmark, popupMenu.getMenu());
 
@@ -78,6 +78,7 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
                 if(menuItem.getItemId() == R.id.goToBookmarkedPage){
                     if (Book.equals("Princess Rose And The Golden Bird")){
                         Intent intent = new Intent(context,BookTwoActivity.class);
+                        intent.putExtra("page",pageNumber);
                         context.startActivity(intent);
                     }
                 } else if (menuItem.getItemId() == R.id.deleteBookmark){

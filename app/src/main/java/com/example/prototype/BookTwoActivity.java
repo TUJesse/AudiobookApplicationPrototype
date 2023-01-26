@@ -16,6 +16,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.util.Objects;
+
 public class BookTwoActivity extends AppCompatActivity {
     MediaPlayer soundTest;
     int [] sounds;
@@ -46,6 +48,10 @@ public class BookTwoActivity extends AppCompatActivity {
 
         for (int i = 0; i < pageNumbers.length; i ++){
             pageNumbers[i] = "page "+ (i+1);
+
+            if (Objects.equals(pageNumbers[i], getIntent().getStringExtra("page"))){
+                current_index = i;
+            }
         }
 
         pages = new int[] {page1, page2, page3, page4, page5};
