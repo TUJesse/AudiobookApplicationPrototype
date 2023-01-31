@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UserProfile">
+
+    <Button
+        android:id="@+id/booksCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/changeEmail"
+        android:gravity="center"
+        android:text="Books Completed" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/bookmarkedBooks"
+        android:layout_below="@+id/booksCompleted"
+        android:text="Bookmarked Books"
+        android:layout_marginStart="20dp"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userInfo"
+        android:text="Your info"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userEmail"
+        android:text="Your email: "
+        android:textSize="20sp"
+        android:gravity="left"
+        android:layout_below="@+id/userInfo"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/changeEmail"
+        android:text="Click to change email address "
+        android:textSize="20sp"
+        android:gravity="left"
+        android:layout_below="@+id/userEmail"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quizResults"
+        android:text="Quiz Results"
+        android:layout_below="@+id/bookmarkedBooks"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        />
+
+
+
+</RelativeLayout>
