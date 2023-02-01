@@ -1,25 +1,20 @@
 package com.example.prototype;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.DownloadManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.Query;
 
 public class MainMenu extends AppCompatActivity {
 
     Button logOut;
     ImageButton menuBtn;
-    Button bookmarkPage;
+    Button profilePage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +26,7 @@ public class MainMenu extends AppCompatActivity {
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
-        bookmarkPage = (Button)this.findViewById(R.id.bookmarkPageButton);
+        profilePage = (Button)this.findViewById(R.id.profilePage);
 
 
         bookOne.setOnClickListener(new View.OnClickListener() {
@@ -69,10 +64,10 @@ public class MainMenu extends AppCompatActivity {
         }
     });
 
-        bookmarkPage.setOnClickListener(new View.OnClickListener() {
+        profilePage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switchBookmarkPage();
+                switchToProfilePage();
             }
         });
     }
@@ -85,6 +80,10 @@ public class MainMenu extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, BookmarkPage.class);
         startActivity(switchActivityIntent);
     }
+    private void switchToProfilePage(){
+            Intent switchActivityIntent = new Intent(this, UserProfile.class);
+            startActivity(switchActivityIntent);
+        }
 
     private void logOutOfApp(){
         FirebaseAuth.getInstance().signOut();

@@ -10,8 +10,11 @@
         android:id="@+id/booksCompleted"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
         android:layout_below="@+id/changeEmail"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:text="Books Completed" />
 
@@ -28,11 +31,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/userInfo"
-        android:text="Your info"
+        android:text="Your Profile"
         android:textSize="20sp"
         android:gravity="center"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
+        android:layout_below="@+id/profileIcon"
         />
 
     <TextView
@@ -68,6 +72,16 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
         />
+    
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/img"
+        android:id="@+id/profileIcon"
+        android:layout_centerHorizontal="true"
+
+        />
+
 
 
 

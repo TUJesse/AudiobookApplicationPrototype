@@ -82,10 +82,10 @@
         app:srcCompat="@drawable/ic_baseline_menu_24" />
 
     <Button
-        android:id="@+id/bookmarkPageButton"
+        android:id="@+id/profilePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bookmark Page"
+        android:text="Your Profile"
         app:layout_constraintBottom_toTopOf="@+id/bookOne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
