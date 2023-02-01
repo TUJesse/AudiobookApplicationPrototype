@@ -65,12 +65,13 @@ public class BookTwoActivity extends AppCompatActivity {
         pageNumberView.setText(pageNumbers[current_index]);
         soundTest = MediaPlayer.create(this, sounds[current_index]);
         txtView.setText(pages[current_index]);
+        //txtView.setBackground(getResources().getDrawable(R.drawable.ic_launcher_background));
         bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
-        Button playButton = (Button)this.findViewById(R.id.playButtonBook2);
-        Button pauseButton = (Button)this.findViewById(R.id.pauseButtonBook2);
-        Button stopButton = (Button)this.findViewById(R.id.stopButtonBook2);
-        Button backButton = (Button)this.findViewById(R.id.backButtonBook2);
-        Button nextButton = (Button)this.findViewById(R.id.nextButtonBook2);
+        ImageButton playButton = (ImageButton) this.findViewById(R.id.playButtonBook2);
+        ImageButton pauseButton = (ImageButton)this.findViewById(R.id.pauseButtonBook2);
+        ImageButton stopButton = (ImageButton)this.findViewById(R.id.stopButtonBook2);
+        ImageButton backButton = (ImageButton)this.findViewById(R.id.backButtonBook2);
+        ImageButton nextButton = (ImageButton)this.findViewById(R.id.nextButtonBook2);
 
 
         playButton.setOnClickListener(new View.OnClickListener() {
