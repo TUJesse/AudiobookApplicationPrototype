@@ -23,6 +23,7 @@ public class MainMenu extends AppCompatActivity {
 
         Button bookOne = (Button)this.findViewById(R.id.bookOne);
         Button bookTwo = (Button)this.findViewById(R.id.bookTwo);
+        Button lrrh = (Button)this.findViewById(R.id.littleRedRidingHood);
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
@@ -70,6 +71,13 @@ public class MainMenu extends AppCompatActivity {
                 switchToProfilePage();
             }
         });
+
+        lrrh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchLittleRedRidingHood();
+            }
+        });
     }
 
     private void showMenu(){
@@ -102,6 +110,11 @@ public class MainMenu extends AppCompatActivity {
     }
     private void switchTtsBook(){
         Intent switchActivityIntent = new Intent(this, TextToSpeechPage.class);
+        startActivity(switchActivityIntent);
+    }
+
+    private void switchLittleRedRidingHood(){
+        Intent switchActivityIntent = new Intent(this, LittleRedRidingHoodBook.class);
         startActivity(switchActivityIntent);
     }
 

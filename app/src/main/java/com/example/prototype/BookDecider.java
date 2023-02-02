@@ -20,6 +20,10 @@ public class BookDecider extends AppCompatActivity {
             Intent intent = new Intent(this,BookTwoActivity.class);
             intent.putExtra("page",pageNumber);
             this.startActivity(intent);
+        } else if (title.equals("Little Red Riding Hood")){
+            Intent intent = new Intent(this,LittleRedRidingHoodBook.class);
+            intent.putExtra("page",pageNumber);
+            this.startActivity(intent);
         }
     }
 }
