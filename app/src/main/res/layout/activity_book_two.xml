@@ -18,6 +18,8 @@
         app:layout_constraintBottom_toTopOf="@+id/stopButtonBook2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@+id/bookTwoPageNumber" />
 
     <ImageButton
