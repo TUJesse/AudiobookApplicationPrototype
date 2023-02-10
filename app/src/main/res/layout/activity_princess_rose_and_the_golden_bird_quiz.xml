@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    android:padding="24dp"
+    tools:context=".PrincessRoseAndTheGoldenBirdQuiz">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/total_question"
+        android:text="Number of Questions"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/question"
+        android:textStyle="bold"
+        android:text="Question"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_margin="20dp"
+        android:layout_above="@+id/answers_layout"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/answers_layout"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer_A"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Ans a"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer_B"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Ans b"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer_C"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Ans c"
+            android:textColor="@color/black"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/answer_D"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/white"
+            android:text="Ans d"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/submit_question"
+        android:layout_below="@+id/answers_layout"
+        android:layout_margin="20dp"/>
+
+
+
+</RelativeLayout>
