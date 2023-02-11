@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_200"
+    tools:context=".QuizPage">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/quizPageTitle"
+        android:text="Quizzes"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="40sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/quizPageTitle"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/princessRoseQuiz"
+            android:text="@string/princess_rose_and_the_golden_bird_Title"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/littleRedRidingHoodQuiz"
+            android:text="@string/little_red_riding_hood_Title"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/theThreeLittlePigs"
+            android:text="The Three Little Pigs"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

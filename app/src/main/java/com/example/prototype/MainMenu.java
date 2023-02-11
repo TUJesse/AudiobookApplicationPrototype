@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
 
-    Button logOut;
+    Button logOut,quizzes;
     ImageButton menuBtn;
     Button profilePage;
 
@@ -28,6 +28,7 @@ public class MainMenu extends AppCompatActivity {
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
         profilePage = (Button)this.findViewById(R.id.profilePage);
+        quizzes = (Button)this.findViewById(R.id.quizButton);
 
 
         bookOne.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +79,13 @@ public class MainMenu extends AppCompatActivity {
                 switchLittleRedRidingHood();
             }
         });
+
+        quizzes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchQuizzes();
+            }
+        });
     }
 
     private void showMenu(){
@@ -115,6 +123,11 @@ public class MainMenu extends AppCompatActivity {
 
     private void switchLittleRedRidingHood(){
         Intent switchActivityIntent = new Intent(this, LittleRedRidingHoodBook.class);
+        startActivity(switchActivityIntent);
+    }
+
+private void switchQuizzes(){
+        Intent switchActivityIntent = new Intent(this, QuizPage.class);
         startActivity(switchActivityIntent);
     }
 

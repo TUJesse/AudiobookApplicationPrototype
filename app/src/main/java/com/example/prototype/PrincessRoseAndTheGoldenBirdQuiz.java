@@ -41,8 +41,6 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
         ansD.setOnClickListener(this);
         submitButton.setOnClickListener(this);
 
-        totalQuestionsTextView.setText("Total questions: "+ totalQuestions);
-
         loadQuestions();
     }
 
@@ -57,12 +55,11 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
         Button clickedButton = (Button) view;
 
         if (clickedButton.getId() == R.id.submit_question){
-            index++;
-            loadQuestions();
-
             if (selectedAnswer.equals(QuestionAnswer.correctAnswers[index])){
                 score++;
             }
+            index++;
+            loadQuestions();
 
         } else{
             selectedAnswer = clickedButton.getText().toString();
@@ -76,22 +73,31 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
         if (index == totalQuestions){
             finishQuiz();
             return;
+        } else {
+            totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
+            questionTextView.setText(QuestionAnswer.questions[index]);
+            ansA.setText(QuestionAnswer.answers[index][0]);
+            ansB.setText(QuestionAnswer.answers[index][1]);
+            ansC.setText(QuestionAnswer.answers[index][2]);
+            ansD.setText(QuestionAnswer.answers[index][3]);
         }
-
-        questionTextView.setText(QuestionAnswer.questions[index]);
-        ansA.setText(QuestionAnswer.answers[index][0]);
-        ansB.setText(QuestionAnswer.answers[index][1]);
-        ansC.setText(QuestionAnswer.answers[index][2]);
-        ansD.setText(QuestionAnswer.answers[index][3]);
     }
 
     private void finishQuiz(){
         new AlertDialog.Builder(this).setMessage("Score is "+ score + " out of "+ totalQuestions).
-                setPositiveButton("return to main menu",(dialogInterface, i) -> mainMenu()).setCancelable(false).show();
+                setPositiveButton("restart",(dialogInterface, i) -> restart()).setCancelable(false).
+                setNegativeButton("return to quiz page",(dialogInterface, i) -> quizPage()).setCancelable(false).show();
     }
 
-    private void mainMenu(){
-        Intent intent = new Intent(this,MainMenu.class);
+    private void quizPage(){
+        Intent intent = new Intent(this,QuizPage.class);
         startActivity(intent);
+    }
+
+    private void restart(){
+        score = 0;
+        index = 0;
+        loadQuestions();
+        totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
     }
 }
