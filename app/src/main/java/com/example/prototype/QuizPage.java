@@ -43,16 +43,7 @@ public class QuizPage extends AppCompatActivity implements View.OnClickListener 
     public void onClick(View view) {
         TextView clickedOption = (TextView) view;
         Intent intent = new Intent(this,PrincessRoseAndTheGoldenBirdQuiz.class);
-
-        if (clickedOption.getId() == R.id.princessRoseQuiz){
-            intent.putExtra("quizName", princessRose.getText());
-        } else if (clickedOption.getId() == R.id.littleRedRidingHoodQuiz){
-            intent.putExtra("quizName", LrrHood.getText());
-        }
+        intent.putExtra("quizName", clickedOption.getText());
         this.startActivity(intent);
-
-        //Intent intentt = new Intent(this,BookTwoActivity.class);
-        //intent.putExtra("quizName", princessRose.getText());
-        //this.startActivity(intentt);
     }
 }
