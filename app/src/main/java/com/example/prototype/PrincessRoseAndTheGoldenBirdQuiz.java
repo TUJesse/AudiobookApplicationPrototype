@@ -16,7 +16,8 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
     Button ansA,ansB,ansC,ansD,submitButton;
 
     int score = 0;
-    int totalQuestions = QuestionAnswer.questions.length;
+    //int totalQuestions = QuestionAnswer.questions.length;
+    int totalQuestions;
     int index = 0;
     String selectedAnswer = "";
 
@@ -24,6 +25,8 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_princess_rose_and_the_golden_bird_quiz);
+
+        totalQuestions = QuestionAnswer.questionsDecider(getIntent().getStringExtra("quizName")).length;
 
         totalQuestionsTextView = this.findViewById(R.id.total_question);
         questionTextView = this.findViewById(R.id.question);
@@ -55,7 +58,7 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
         Button clickedButton = (Button) view;
 
         if (clickedButton.getId() == R.id.submit_question){
-            if (selectedAnswer.equals(QuestionAnswer.correctAnswers[index])){
+            if (selectedAnswer.equals(QuestionAnswer.correctAnswerDecider(getIntent().getStringExtra("quizName"))[index])){
                 score++;
             }
             index++;
@@ -75,11 +78,11 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
             return;
         } else {
             totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
-            questionTextView.setText(QuestionAnswer.questions[index]);
-            ansA.setText(QuestionAnswer.answers[index][0]);
-            ansB.setText(QuestionAnswer.answers[index][1]);
-            ansC.setText(QuestionAnswer.answers[index][2]);
-            ansD.setText(QuestionAnswer.answers[index][3]);
+            questionTextView.setText(QuestionAnswer.questionsDecider(getIntent().getStringExtra("quizName"))[index]);
+            ansA.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("quizName"))[index][0]);
+            ansB.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("quizName"))[index][1]);
+            ansC.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("quizName"))[index][2]);
+            ansD.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("quizName"))[index][3]);
         }
     }
 

@@ -5,9 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-public class QuizPage extends AppCompatActivity {
+public class QuizPage extends AppCompatActivity implements View.OnClickListener {
 
     TextView princessRose,LrrHood,threeLittlePigs;
 
@@ -17,17 +18,41 @@ public class QuizPage extends AppCompatActivity {
         setContentView(R.layout.activity_quiz_page);
 
         princessRose = (TextView)this.findViewById(R.id.princessRoseQuiz);
+        LrrHood = (TextView)this.findViewById(R.id.littleRedRidingHoodQuiz);
 
-        princessRose.setOnClickListener(new View.OnClickListener() {
+        princessRose.setOnClickListener(this);
+        LrrHood.setOnClickListener(this);
+
+        /*princessRose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switchQuiz();
             }
-        });
+        });*/
     }
+
+
+
 
     void switchQuiz(){
         Intent intent = new Intent(this,PrincessRoseAndTheGoldenBirdQuiz.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void onClick(View view) {
+        TextView clickedOption = (TextView) view;
+        Intent intent = new Intent(this,PrincessRoseAndTheGoldenBirdQuiz.class);
+
+        if (clickedOption.getId() == R.id.princessRoseQuiz){
+            intent.putExtra("quizName", princessRose.getText());
+        } else if (clickedOption.getId() == R.id.littleRedRidingHoodQuiz){
+            intent.putExtra("quizName", LrrHood.getText());
+        }
+        this.startActivity(intent);
+
+        //Intent intentt = new Intent(this,BookTwoActivity.class);
+        //intent.putExtra("quizName", princessRose.getText());
+        //this.startActivity(intentt);
     }
 }
