@@ -1,5 +1,6 @@
 package com.example.prototype;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
@@ -10,7 +11,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implements View.OnClickListener {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentReference;
+
+public class Quiz extends AppCompatActivity implements View.OnClickListener {
 
     TextView totalQuestionsTextView, questionTextView;
     Button ansA,ansB,ansC,ansD,submitButton;
@@ -20,12 +26,14 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
     int totalQuestions;
     int index = 0;
     String selectedAnswer = "";
+    String Title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_princess_rose_and_the_golden_bird_quiz);
+        setContentView(R.layout.activity_quiz);
 
+        Title = getIntent().getStringExtra("quizName");
         totalQuestions = QuestionAnswer.questionsDecider(getIntent().getStringExtra("quizName")).length;
 
         totalQuestionsTextView = this.findViewById(R.id.total_question);
@@ -89,12 +97,13 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
     private void finishQuiz(){
         new AlertDialog.Builder(this).setMessage("Score is "+ score + " out of "+ totalQuestions).
                 setPositiveButton("restart",(dialogInterface, i) -> restart()).setCancelable(false).
-                setNegativeButton("return to quiz page",(dialogInterface, i) -> quizPage()).setCancelable(false).show();
+                setNegativeButton("save results and exit",(dialogInterface, i) -> saveQuizScore()).setCancelable(false).show();
     }
 
     private void quizPage(){
-        Intent intent = new Intent(this,QuizPage.class);
+        Intent intent = new Intent(this, QuizSelectionPage.class);
         startActivity(intent);
+        finish();
     }
 
     private void restart(){
@@ -102,5 +111,36 @@ public class PrincessRoseAndTheGoldenBirdQuiz extends AppCompatActivity implemen
         index = 0;
         loadQuestions();
         totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
+    }
+
+    void saveQuizScore (){
+        String quizTitle = Title;
+        String quizScore = score + " out of "+ totalQuestions;
+
+        QuizResults quizResults = new QuizResults();
+        quizResults.setTitle(quizTitle);
+        quizResults.setScore(quizScore);
+        quizResults.setTimestamp(Timestamp.now());
+
+        saveQuizScoreToFirebase(quizResults);
+
+        quizPage();
+    }
+
+    void saveQuizScoreToFirebase(QuizResults quizResults){
+        DocumentReference documentReference;
+        documentReference = Utility.getCollectionReferenceForQuizResults().document();
+
+        documentReference.set(quizResults).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Utility.showToast(Quiz.this,"result saved successfully");
+                }else {
+                    Utility.showToast(Quiz.this,"result didn't save");
+
+                }
+            }
+        });
     }
 }

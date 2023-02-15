@@ -22,6 +22,11 @@ public class Utility {
        return FirebaseFirestore.getInstance().collection("bookmarks").document(currentUser.getUid()).collection("my_bookmarks");
     }
 
+    static CollectionReference getCollectionReferenceForQuizResults(){
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        return FirebaseFirestore.getInstance().collection("quizResults").document(currentUser.getUid()).collection("my_quizResults");
+    }
+
     static String timestampToString(Timestamp timestamp){
        return new SimpleDateFormat("MM/dd/yyyy").format(timestamp.toDate());
     }

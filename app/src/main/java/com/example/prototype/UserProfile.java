@@ -46,7 +46,7 @@ public class UserProfile extends AppCompatActivity {
         quizResultsPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                switchToQuizResults();
             }
         });
     }
@@ -59,7 +59,8 @@ public class UserProfile extends AppCompatActivity {
 
     }
     private void switchToQuizResults(){
-
+        Intent switchActivityIntent = new Intent(this, QuizResultsPage.class);
+        startActivity(switchActivityIntent);
     }
 
     private void displayEmail(){

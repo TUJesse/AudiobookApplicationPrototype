@@ -127,7 +127,7 @@ public class MainMenu extends AppCompatActivity {
     }
 
 private void switchQuizzes(){
-        Intent switchActivityIntent = new Intent(this, QuizPage.class);
+        Intent switchActivityIntent = new Intent(this, QuizSelectionPage.class);
         startActivity(switchActivityIntent);
     }
 
