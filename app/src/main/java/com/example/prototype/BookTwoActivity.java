@@ -6,9 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,6 +31,7 @@ public class BookTwoActivity extends AppCompatActivity {
     TextView pageNumberView;
     TextView titleView;
     ImageButton bookmarkButton;
+    ImageView imageView;
     int page1;
     int page2;
     int page3;
@@ -60,6 +63,7 @@ public class BookTwoActivity extends AppCompatActivity {
         txtView = (TextView) findViewById(R.id.textDisplayBook2);
         pageNumberView = (TextView)this.findViewById(R.id.bookTwoPageNumber);
         titleView = (TextView)this.findViewById(R.id.bookTwoTitle);
+        imageView = (ImageView)this.findViewById(R.id.imageView1);
 
         sounds = new int[] {R.raw.princess_rose_and_the_golden_bird1, R.raw.princess_rose_and_the_golden_bird2,
                 R.raw.princess_rose_and_the_golden_bird3, R.raw.princess_rose_and_the_golden_bird4, R.raw.princess_rose_and_the_golden_bird5};
@@ -69,7 +73,8 @@ public class BookTwoActivity extends AppCompatActivity {
         pageNumberView.setText(pageNumbers[current_index]);
         soundTest = MediaPlayer.create(this, sounds[current_index]);
         txtView.setText(pages[current_index]);
-        txtView.setBackground(getResources().getDrawable(images[current_index]));
+        //txtView.setBackground(getResources().getDrawable(images[current_index]));
+        imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
         bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
         ImageButton playButton = (ImageButton) this.findViewById(R.id.playButtonBook2);
         ImageButton pauseButton = (ImageButton)this.findViewById(R.id.pauseButtonBook2);
@@ -154,7 +159,7 @@ public class BookTwoActivity extends AppCompatActivity {
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
-            txtView.setBackground(getResources().getDrawable(images[current_index]));
+            imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
             pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -174,7 +179,7 @@ public class BookTwoActivity extends AppCompatActivity {
             soundTest.stop();
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
-            txtView.setBackground(getResources().getDrawable(images[current_index]));
+            imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
             pageNumberView.setText(pageNumbers[current_index]);
         }
         soundTest.start();
@@ -189,7 +194,7 @@ public class BookTwoActivity extends AppCompatActivity {
             current_index++;
 
             txtView.setText(pages[current_index]);
-            txtView.setBackground(getResources().getDrawable(images[current_index]));
+            imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
             pageNumberView.setText(pageNumbers[current_index]);
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
 
@@ -217,7 +222,7 @@ public class BookTwoActivity extends AppCompatActivity {
         if (current_index > 0) {
             current_index--;
             txtView.setText(pages[current_index]);
-            txtView.setBackground(getResources().getDrawable(images[current_index]));
+            imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
             pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
@@ -237,7 +242,8 @@ public class BookTwoActivity extends AppCompatActivity {
 
             soundTest = MediaPlayer.create(BookTwoActivity.this, sounds[current_index]);
             txtView.setText(pages[current_index]);
-            txtView.setBackground(getResources().getDrawable(images[current_index]));
+            txtView.setMovementMethod(new ScrollingMovementMethod());
+            imageView.setImageDrawable(getResources().getDrawable(images[current_index]));
             pageNumberView.setText(pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {

@@ -22,8 +22,8 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         Button bookOne = (Button)this.findViewById(R.id.bookOne);
-        Button bookTwo = (Button)this.findViewById(R.id.bookTwo);
-        Button lrrh = (Button)this.findViewById(R.id.littleRedRidingHood);
+        ImageButton bookTwo = (ImageButton)this.findViewById(R.id.bookTwo);
+        ImageButton lrrh = (ImageButton)this.findViewById(R.id.littleRedRidingHood);
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
