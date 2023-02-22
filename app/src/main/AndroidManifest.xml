@@ -13,6 +13,20 @@
         android:theme="@style/Theme.Prototype"
         tools:targetApi="31">
         <activity
+            android:name=".Cinderella"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".Goldilocks"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".QuizResultsPage"
             android:exported="false">
             <meta-data
