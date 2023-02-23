@@ -28,6 +28,10 @@ public class BookDecider extends AppCompatActivity {
             Intent intent = new Intent(this,Cinderella.class);
             intent.putExtra("page",pageNumber);
             this.startActivity(intent);
+        }else if (title.equals("Goldilocks")){
+            Intent intent = new Intent(this,Goldilocks.class);
+            intent.putExtra("page",pageNumber);
+            this.startActivity(intent);
         }
     }
 }

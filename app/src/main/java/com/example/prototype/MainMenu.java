@@ -25,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
         ImageButton bookTwo = (ImageButton)this.findViewById(R.id.bookTwo);
         ImageButton lrrh = (ImageButton)this.findViewById(R.id.littleRedRidingHood);
         ImageButton cinderella = (ImageButton)this.findViewById(R.id.Cinderella);
+        ImageButton goldilocks = (ImageButton)this.findViewById(R.id.Goldilocks);
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
@@ -94,6 +95,13 @@ public class MainMenu extends AppCompatActivity {
                 switchCinderella();
             }
         });
+
+        goldilocks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchGoldilocks();
+            }
+        });
     }
 
     private void showMenu(){
@@ -139,8 +147,13 @@ public class MainMenu extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
 
- private void switchCinderella(){
+    private void switchCinderella(){
         Intent switchActivityIntent = new Intent(this, Cinderella.class);
+        startActivity(switchActivityIntent);
+    }
+
+    private void switchGoldilocks(){
+        Intent switchActivityIntent = new Intent(this, Goldilocks.class);
         startActivity(switchActivityIntent);
     }
 
