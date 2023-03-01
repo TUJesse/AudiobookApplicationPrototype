@@ -36,6 +36,10 @@ public class BookDecider extends AppCompatActivity {
             Intent intent = new Intent(this,TheFoxAndTheCrow.class);
             intent.putExtra("page",pageNumber);
             this.startActivity(intent);
+        }else if (title.equals("Androcles And The Lion")){
+            Intent intent = new Intent(this,Androcles.class);
+            intent.putExtra("page",pageNumber);
+            this.startActivity(intent);
         }
     }
 }
