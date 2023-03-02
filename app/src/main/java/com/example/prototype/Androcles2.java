@@ -53,6 +53,7 @@ public class Androcles2 extends AppCompatActivity {
 
 
 
+
         pageNumberView.setText(Androcles.pageNumbers[current_index]);
         txtView.setText(Androcles.pages[current_index]);
         imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
