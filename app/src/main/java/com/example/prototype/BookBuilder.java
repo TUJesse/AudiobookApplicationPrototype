@@ -1,5 +1,6 @@
 package com.example.prototype;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -12,6 +13,7 @@ public class BookBuilder extends AppCompatActivity {
     int [] sounds;
     int [] pages;
     int [] images;
+    String title;
     String [] pageNumbers;
     int current_index = 0;
     TextView txtView;
@@ -30,6 +32,8 @@ public class BookBuilder extends AppCompatActivity {
         this.txtView  = builder.txtView;
         this.pageNumberView = builder.pageNumberView;
         this.titleView = builder.titleView;
+        this.title = builder.title;
+        this.soundTest = builder.soundTest;
     }
 
     public static class Builder{
@@ -43,15 +47,19 @@ public class BookBuilder extends AppCompatActivity {
         TextView pageNumberView;
         TextView titleView;
         ImageView imageView;
+        String title;
         int page1,page2,page3,page4,page5;
 
         public Builder(String title, int numberOfPages, int [] sounds, int [] pages, int [] images, String[] pageNumbers){
-            this.titleView.setText(title);
+            //this.titleView.setText(title);
+            this.title = title;
+            //Context context = Androcles2.this;
             //this.pageNumbers = new String[numberOfPages];
             this.sounds = sounds;
             this.pages = pages;
             this.images = images;
             this.pageNumbers = pageNumbers;
+
         }
 
         public void setSoundTest(MediaPlayer soundTest) {

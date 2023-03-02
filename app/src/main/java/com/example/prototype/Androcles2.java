@@ -20,9 +20,12 @@ import java.util.Objects;
 
 public class Androcles2 extends AppCompatActivity {
 
+    MediaPlayer soundTest;
     int [] pages;
     int current_index = 0;
     TextView txtView;
+    TextView titleView;
+
     TextView pageNumberView;
     ImageView imageView;
     ImageButton bookmarkButton;
@@ -48,13 +51,15 @@ public class Androcles2 extends AppCompatActivity {
 
         txtView = (TextView) findViewById(R.id.textDisplayBook);
         pageNumberView = (TextView)this.findViewById(R.id.bookPageNumber);
-        Androcles.titleView = (TextView)this.findViewById(R.id.bookTitle);
+        titleView = (TextView)this.findViewById(R.id.bookTitle);
         imageView = (ImageView)this.findViewById(R.id.imageView1);
 
 
 
         pageNumberView.setText(Androcles.pageNumbers[current_index]);
         txtView.setText(Androcles.pages[current_index]);
+        soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+        titleView.setText(Androcles.title);
         imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
         bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
         ImageButton playButton = (ImageButton) this.findViewById(R.id.playButtonBook);
@@ -75,15 +80,15 @@ public class Androcles2 extends AppCompatActivity {
         pauseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Androcles.soundTest.pause();
+                soundTest.pause();
             }
         });
 
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Androcles.soundTest.stop();
-                Androcles.soundTest = MediaPlayer.create(Androcles2.this,Androcles.sounds[current_index]);
+                soundTest.stop();
+                soundTest = MediaPlayer.create(Androcles2.this,Androcles.sounds[current_index]);
             }
         });
 
@@ -104,7 +109,7 @@ public class Androcles2 extends AppCompatActivity {
             }
         });
 
-        Androcles.soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -125,7 +130,7 @@ public class Androcles2 extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Androcles.soundTest.stop();
+        soundTest.stop();
         super.onBackPressed();
         this.finish();
 
@@ -138,12 +143,12 @@ public class Androcles2 extends AppCompatActivity {
         if (current_index < Androcles.sounds.length - 1) {
             current_index++;
 
-            Androcles.soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
             txtView.setText(pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
-            Androcles.soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -157,29 +162,29 @@ public class Androcles2 extends AppCompatActivity {
             current_index = 0;
 
 
-            Androcles.soundTest.stop();
-            Androcles.soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest.stop();
+            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
             txtView.setText(pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
         }
-        Androcles.soundTest.start();
+        soundTest.start();
 
 
     }
 
     private void playForForwardButton(){
 
-        Androcles.soundTest.stop();
+        soundTest.stop();
         if (current_index < Androcles.sounds.length-1) {
             current_index++;
 
             txtView.setText(pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
-            Androcles.soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
 
-            Androcles.soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -193,22 +198,22 @@ public class Androcles2 extends AppCompatActivity {
             current_index = 0;
         }
 
-        Androcles.soundTest.start();
+        soundTest.start();
 
 
     }
 
     private void playBackButton(){
-        Androcles.soundTest.stop();
+        soundTest.stop();
         if (current_index > 0) {
             current_index--;
             txtView.setText(pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
-            Androcles.soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
 
-            Androcles.soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -221,12 +226,12 @@ public class Androcles2 extends AppCompatActivity {
 
         } else {
 
-            Androcles.soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
             txtView.setText(pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
-            Androcles.soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -237,15 +242,15 @@ public class Androcles2 extends AppCompatActivity {
 
             });
         }
-        Androcles.soundTest.start();
+        soundTest.start();
     }
 
     private void play2() {
-        Androcles.soundTest.start();
+        soundTest.start();
     }
 
     void saveBookmark (){
-        String bookTitle = Androcles.titleView.getText().toString();
+        String bookTitle = titleView.getText().toString();
         String pageNumber = pageNumberView.getText().toString();
 
         Bookmark bookmark = new Bookmark();
