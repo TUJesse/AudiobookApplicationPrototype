@@ -30,12 +30,13 @@ public class Androcles2 extends AppCompatActivity {
     ImageView imageView;
     ImageButton bookmarkButton;
 
+    BookBuilder Androcles = new BookDirector().getAndrocles();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_androcles2);
-
-        BookBuilder Androcles = new BookDirector().getAndrocles();
 
 //        page1 = (R.string.Androcles_and_the_Lion_P1);
 //        page2 = (R.string.Androcles_and_the_Lion_P2);
@@ -179,7 +180,7 @@ public class Androcles2 extends AppCompatActivity {
         if (current_index < Androcles.sounds.length-1) {
             current_index++;
 
-            txtView.setText(pages[current_index]);
+            txtView.setText(Androcles.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
@@ -207,7 +208,7 @@ public class Androcles2 extends AppCompatActivity {
         soundTest.stop();
         if (current_index > 0) {
             current_index--;
-            txtView.setText(pages[current_index]);
+            txtView.setText(Androcles.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
