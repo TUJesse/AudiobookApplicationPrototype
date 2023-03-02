@@ -74,6 +74,7 @@ Eventually, rose blooms sprang up in every garden in the kingdom once again. And
     <string name="Goldilocks_title">Goldilocks</string>
     <string name="Androcles_and_the_Lion_Title">Androcles And The Lion</string>
     <string name="The_Fox_and_the_Crow_Title">The Fox And The Crow</string>
+    <string name="The_Rat_and_the_Elephant_Title">The Rat And The Elephant</string>
     <string name="book5_p6"> once upon a time there was a princess</string>
 
     <string name="little_red_riding_hood_p1">
@@ -285,6 +286,28 @@ Eventually, rose blooms sprang up in every garden in the kingdom once again. And
         The Emperor summoned Androcles to him. So Androcles told the Emperor all that had happened to him and how the lion was showing gratitude for his having relieved it of the thorn.
         Thereupon, the emperor pardoned Androcles and ordered his master to set him free, while the lion was taken back into the forest and let loose to enjoy freedom once more.
             </string>
+
+    <string name="The_Rat_and_the_Elephant_p1">
+      Some people say that rats are ugly creatures. When they see a rat running along, they go ee-yuck! Well I don’t know about you, but I’ve always thought that this was rather rude.
+        Rats can have hurt feelings too you know! In any case, when I catch sight of my reflection in a stream, I think I’m rather cute.
+        Just recently, I was trotting along the King’s Highway, in my sweet little way, when I heard a great commotion on the road up ahead.
+        Who or what is causing all that fuss? I wondered. When I got closer, I saw the King himself, riding along on top of a great fat lump of an elephant.
+        The crowd of onlookers were ooo-ing and aah-ing full of admiration for that stupid beast with a nose that’s far too big for her face.
+    </string>
+
+    <string name="The_Rat_and_the_Elephant_p2">
+        She’s much uglier than me, I thought.
+        So I started to spring up and down and say: “Hey everyone! Why not look at me? I’m such a cutie-pie!
+        I could join the King’s household and be a royal rat, if only there was any justice in the world.”
+         At first, nobody noticed me. They were all too busy ogling that stupid elephant.
+        Little did I know that riding behind the elephant in a carriage, was the princess, and she was holding a beastly cat in her arms.</string>
+
+    <string name="The_Rat_and_the_Elephant_p3">
+        When he caught sight of me, the cat leapt out of the carriage and started to chase me.
+        I had to run for my life, and popped down a hole just in time before the cat could eat me up.
+        Now I’ve changed my mind about wanting people to notice me and admire me.
+        I’ve decided that sometimes, it’s far better not to draw attention to yourself, but just to get on quietly with your own business.
+    </string>
 
 
 </resources>

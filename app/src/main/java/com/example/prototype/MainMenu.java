@@ -28,6 +28,7 @@ public class MainMenu extends AppCompatActivity {
         ImageButton goldilocks = (ImageButton)this.findViewById(R.id.Goldilocks);
         ImageButton theFoxAndTheCrow = (ImageButton)this.findViewById(R.id.TheFoxAndTheCrow);
         ImageButton androcles = (ImageButton)this.findViewById(R.id.Androcles);
+        ImageButton ratElephant = (ImageButton)this.findViewById(R.id.RatElephant);
         Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
         logOut = (Button)this.findViewById(R.id.logOut);
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
@@ -118,6 +119,13 @@ public class MainMenu extends AppCompatActivity {
                 switchAndrocles();
             }
         });
+
+        ratElephant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchRatElephant();
+            }
+        });
     }
 
     private void showMenu(){
@@ -182,6 +190,11 @@ public class MainMenu extends AppCompatActivity {
             Intent switchActivityIntent = new Intent(this, Androcles.class);
             startActivity(switchActivityIntent);
         }
+
+    private void switchRatElephant(){
+                Intent switchActivityIntent = new Intent(this, RatElephant.class);
+                startActivity(switchActivityIntent);
+            }
 
 
 }

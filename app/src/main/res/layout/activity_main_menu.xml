@@ -256,6 +256,38 @@
 
         </LinearLayout>
 
+        <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/RatElephantLayout"
+                    android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/RatElephant"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:scaleType="fitCenter"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:srcCompat="@drawable/rat_elephant"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/bookTwo" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/RatElephantDescription"
+                        android:text="@string/The_Rat_and_the_Elephant_Title"
+                        android:textColor="@color/black"
+                        android:textStyle="italic"
+                        android:textSize="20sp"/>
+
+                </LinearLayout>
+
 
     <Button
         android:id="@+id/ttsBook"
