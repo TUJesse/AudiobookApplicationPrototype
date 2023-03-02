@@ -21,11 +21,9 @@ import java.util.Objects;
 public class Androcles2 extends AppCompatActivity {
 
     MediaPlayer soundTest;
-    int [] pages;
     int current_index = 0;
     TextView txtView;
     TextView titleView;
-
     TextView pageNumberView;
     ImageView imageView;
     ImageButton bookmarkButton;
@@ -145,7 +143,7 @@ public class Androcles2 extends AppCompatActivity {
             current_index++;
 
             soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(pages[current_index]);
+            txtView.setText(Androcles.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
@@ -165,7 +163,7 @@ public class Androcles2 extends AppCompatActivity {
 
             soundTest.stop();
             soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(pages[current_index]);
+            txtView.setText(Androcles.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
         }
@@ -228,7 +226,7 @@ public class Androcles2 extends AppCompatActivity {
         } else {
 
             soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(pages[current_index]);
+            txtView.setText(Androcles.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
             pageNumberView.setText(Androcles.pageNumbers[current_index]);
 
