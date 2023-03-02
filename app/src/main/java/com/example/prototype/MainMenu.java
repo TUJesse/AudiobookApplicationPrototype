@@ -187,7 +187,7 @@ public class MainMenu extends AppCompatActivity {
         }
 
     private void switchAndrocles(){
-            Intent switchActivityIntent = new Intent(this, Androcles.class);
+            Intent switchActivityIntent = new Intent(this, Androcles2.class);
             startActivity(switchActivityIntent);
         }
 

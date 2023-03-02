@@ -75,6 +75,7 @@ Eventually, rose blooms sprang up in every garden in the kingdom once again. And
     <string name="Androcles_and_the_Lion_Title">Androcles And The Lion</string>
     <string name="The_Fox_and_the_Crow_Title">The Fox And The Crow</string>
     <string name="The_Rat_and_the_Elephant_Title">The Rat And The Elephant</string>
+    <string name="The_Three_Little_Pigs_Title">The Three Little Pigs</string>
     <string name="book5_p6"> once upon a time there was a princess</string>
 
     <string name="little_red_riding_hood_p1">
@@ -309,5 +310,23 @@ Eventually, rose blooms sprang up in every garden in the kingdom once again. And
         I’ve decided that sometimes, it’s far better not to draw attention to yourself, but just to get on quietly with your own business.
     </string>
 
+    <string name="The_Three_Little_Pigs_p1">
+        Once upon a time, there lived three little pigs. One day, they built their own houses of straw, sticks and bricks.
+        The next day, a big bad wolf came to the first house. “Little pig, little pig, let me come in,” he snarled. “Not by the hair on my chinny, chin, chin, I will not let you in!” cried the first little pig.
+        “Then I’ll huff and I’ll puff and I’ll blow your house down!” growled the big bad wolf. He blew the house down! The first little
+        pig ran to the second house. </string>
+
+    <string name="The_Three_Little_Pigs_p2">
+        The big bad wolf came to the second house. “Little pig, little pig, let me come in,” he snarled.
+        “Not by the hair on my chinny, chin, chin, I will not let you in!” cried the second little pig.
+        “Then I’ll huff and I’ll puff and I’ll blow your house down!” growled the big bad wolf. He blew the house down! The two little
+        pigs ran to the third house. </string>
+
+    <string name="The_Three_Little_Pigs_p3">
+        The big bad wolf came to the third house. “Little pig, little pig, let me come in,” he snarled.
+        “Not by the hair on my chinny, chin, chin, I will not let you in!” cried the third little pig.
+        “Then I’ll huff and I’ll puff and I’ll blow your house down!” growled the big bad wolf. He huffed and he puffed, but he could not blow it down! So he climbed down the chimney and landed
+        in a big pot of stew. SPLASH! He jumped out and ran away. He never came back again.
+        The three little pigs lived happily ever after in the house made of bricks.</string>
 
 </resources>
