@@ -15,10 +15,10 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
-
 import java.util.Objects;
 
-public class Androcles2 extends AppCompatActivity {
+
+public class Book extends AppCompatActivity {
 
     MediaPlayer soundTest;
     int current_index = 0;
@@ -28,7 +28,7 @@ public class Androcles2 extends AppCompatActivity {
     ImageView imageView;
     ImageButton bookmarkButton;
 
-    BookBuilder Androcles = new BookDirector().getAndrocles();
+    BookBuilder Audiobook;
 
 
     @Override
@@ -36,17 +36,19 @@ public class Androcles2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_androcles2);
 
-//        page1 = (R.string.Androcles_and_the_Lion_P1);
-//        page2 = (R.string.Androcles_and_the_Lion_P2);
-//        page3 = (R.string.Androcles_and_the_Lion_P3);
+        if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.Androcles_and_the_Lion_Title))){
+            Audiobook = new BookDirector().getAndrocles();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.The_Rat_and_the_Elephant_Title))){
+            Audiobook = new BookDirector().getRatElephant();
+        }
 
-//        for (int i = 0; i < pageNumbers.length; i ++){
-//            pageNumbers[i] = "page "+ (i+1);
-//
-//            if (Objects.equals(pageNumbers[i], getIntent().getStringExtra("page"))){
-//                current_index = i;
-//            }
-//        }
+
+        for (int i = 0; i < Audiobook.pageNumbers.length; i ++){
+
+            if (Objects.equals(Audiobook.pageNumbers[i], getIntent().getStringExtra("page"))){
+                current_index = i;
+            }
+        }
 
         txtView = (TextView) findViewById(R.id.textDisplayBook);
         pageNumberView = (TextView)this.findViewById(R.id.bookPageNumber);
@@ -55,11 +57,11 @@ public class Androcles2 extends AppCompatActivity {
 
 
 
-        pageNumberView.setText(Androcles.pageNumbers[current_index]);
-        txtView.setText(Androcles.pages[current_index]);
-        soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-        titleView.setText(Androcles.title);
-        imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
+        pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+        txtView.setText(Audiobook.pages[current_index]);
+        soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+        titleView.setText(Audiobook.title);
+        imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
         bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
         ImageButton playButton = (ImageButton) this.findViewById(R.id.playButtonBook);
         ImageButton pauseButton = (ImageButton)this.findViewById(R.id.pauseButtonBook);
@@ -87,7 +89,7 @@ public class Androcles2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 soundTest.stop();
-                soundTest = MediaPlayer.create(Androcles2.this,Androcles.sounds[current_index]);
+                soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             }
         });
 
@@ -139,13 +141,13 @@ public class Androcles2 extends AppCompatActivity {
     }
 
     private void play(){
-        if (current_index < Androcles.sounds.length - 1) {
+        if (current_index < Audiobook.sounds.length - 1) {
             current_index++;
 
-            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(Androcles.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
-            pageNumberView.setText(Androcles.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -162,10 +164,10 @@ public class Androcles2 extends AppCompatActivity {
 
 
             soundTest.stop();
-            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(Androcles.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
-            pageNumberView.setText(Androcles.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
         }
         soundTest.start();
 
@@ -175,13 +177,13 @@ public class Androcles2 extends AppCompatActivity {
     private void playForForwardButton(){
 
         soundTest.stop();
-        if (current_index < Androcles.sounds.length-1) {
+        if (current_index < Audiobook.sounds.length-1) {
             current_index++;
 
-            txtView.setText(Androcles.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
-            pageNumberView.setText(Androcles.pageNumbers[current_index]);
-            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -206,11 +208,11 @@ public class Androcles2 extends AppCompatActivity {
         soundTest.stop();
         if (current_index > 0) {
             current_index--;
-            txtView.setText(Androcles.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
-            pageNumberView.setText(Androcles.pageNumbers[current_index]);
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
 
-            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -225,10 +227,10 @@ public class Androcles2 extends AppCompatActivity {
 
         } else {
 
-            soundTest = MediaPlayer.create(Androcles2.this, Androcles.sounds[current_index]);
-            txtView.setText(Androcles.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Androcles.images[current_index]));
-            pageNumberView.setText(Androcles.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -268,9 +270,9 @@ public class Androcles2 extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Utility.showToast(Androcles2.this,"Bookmark added successfully");
+                    Utility.showToast(Book.this,"Bookmark added successfully");
                 }else {
-                    Utility.showToast(Androcles2.this,"Bookmark failed");
+                    Utility.showToast(Book.this,"Bookmark failed");
 
                 }
             }

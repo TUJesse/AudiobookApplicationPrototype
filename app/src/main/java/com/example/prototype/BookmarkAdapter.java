@@ -76,9 +76,9 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
             public boolean onMenuItemClick(MenuItem menuItem) {
 
                 if(menuItem.getItemId() == R.id.goToBookmarkedPage){
-                        Intent intent = new Intent(context,BookDecider.class);
+                        Intent intent = new Intent(context,Book.class);
                         intent.putExtra("page",pageNumber);
-                        intent.putExtra("bookTitle",Book);
+                        intent.putExtra("bookTitle","The Rat And The Elephant");
                         context.startActivity(intent);
 
                 } else if (menuItem.getItemId() == R.id.deleteBookmark){

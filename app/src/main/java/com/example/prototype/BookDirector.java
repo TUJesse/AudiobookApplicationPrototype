@@ -10,6 +10,7 @@ import java.util.Objects;
 public class BookDirector extends AppCompatActivity {
 
     public static BookBuilder getAndrocles(){
+
         int[] sounds = new int[] {R.raw.androcles_page_1, R.raw.androcles_page_2,
                 R.raw.androcles_page_3};
 
@@ -29,7 +30,7 @@ public class BookDirector extends AppCompatActivity {
 
         int[] images = new int[] {R.drawable.pg1, R.drawable.pg2, R.drawable.pg3};
 
-        return new BookBuilder.Builder("Androcles",3,sounds,pages,images,pageNumbers).build();
+        return new BookBuilder.Builder("Androcles And The Lion",3,sounds,pages,images,pageNumbers).build();
     }
 
     public static BookBuilder getRatElephant(){
@@ -52,6 +53,6 @@ public class BookDirector extends AppCompatActivity {
 
         int[] pages = new int[] {page1, page2, page3};
 
-        return new BookBuilder.Builder("The Elephant And The Rat",3,sounds,pages,images,pageNumbers).build();
+        return new BookBuilder.Builder("The Rat And The Elephant",3,sounds,pages,images,pageNumbers).build();
     }
 }

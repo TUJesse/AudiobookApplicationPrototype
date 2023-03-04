@@ -178,6 +178,7 @@ public class MainMenu extends AppCompatActivity {
 
     private void switchGoldilocks(){
         Intent switchActivityIntent = new Intent(this, Goldilocks.class);
+        //switchActivityIntent.putExtra("title", clickedOption.getText());
         startActivity(switchActivityIntent);
     }
 
@@ -187,13 +188,15 @@ public class MainMenu extends AppCompatActivity {
         }
 
     private void switchAndrocles(){
-            Intent switchActivityIntent = new Intent(this, Androcles2.class);
+            Intent switchActivityIntent = new Intent(this, Book.class);
+            switchActivityIntent.putExtra("bookTitle",getString(R.string.Androcles_and_the_Lion_Title));
             startActivity(switchActivityIntent);
         }
 
     private void switchRatElephant(){
-                Intent switchActivityIntent = new Intent(this, RatElephant.class);
-                startActivity(switchActivityIntent);
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Rat_and_the_Elephant_Title));
+        startActivity(switchActivityIntent);
             }
 
 
