@@ -39,7 +39,7 @@ public class MainMenu extends AppCompatActivity {
         bookOne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switchBookOne();
+
             }
         });
 
@@ -148,10 +148,6 @@ public class MainMenu extends AppCompatActivity {
         finish();
     }
 
-    private void switchBookOne(){
-        Intent switchActivityIntent = new Intent(this, MainActivity.class);
-        startActivity(switchActivityIntent);
-    }
     private void switchBookTwo(){
         Intent switchActivityIntent = new Intent(this, Book.class);
         switchActivityIntent.putExtra("bookTitle",getString(R.string.princess_rose_and_the_golden_bird_Title));
