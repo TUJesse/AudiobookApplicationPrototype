@@ -40,6 +40,16 @@ public class Book extends AppCompatActivity {
             Audiobook = new BookDirector().getAndrocles();
         }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.The_Rat_and_the_Elephant_Title))){
             Audiobook = new BookDirector().getRatElephant();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.Cinderella_title))){
+            Audiobook = new BookDirector().getCinderella();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.Goldilocks_title))){
+            Audiobook = new BookDirector().getGoldilocks();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.little_red_riding_hood_Title))){
+            Audiobook = new BookDirector().getLittleRedRidingHood();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.The_Fox_and_the_Crow_Title))){
+            Audiobook = new BookDirector().getTheFoxAndTheCrow();
+        }else if (getIntent().getStringExtra("bookTitle").equals(getString(R.string.princess_rose_and_the_golden_bird_Title))){
+            Audiobook = new BookDirector().getPrincessRoseAndTheGoldenBird();
         }
 
 

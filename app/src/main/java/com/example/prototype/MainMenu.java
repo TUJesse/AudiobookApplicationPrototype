@@ -153,7 +153,8 @@ public class MainMenu extends AppCompatActivity {
         startActivity(switchActivityIntent);
     }
     private void switchBookTwo(){
-        Intent switchActivityIntent = new Intent(this, BookTwoActivity.class);
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.princess_rose_and_the_golden_bird_Title));
         startActivity(switchActivityIntent);
     }
     private void switchTtsBook(){
@@ -162,8 +163,9 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchLittleRedRidingHood(){
-        Intent switchActivityIntent = new Intent(this, LittleRedRidingHoodBook.class);
-        startActivity(switchActivityIntent);
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.little_red_riding_hood_Title));
+        startActivity(switchActivityIntent);;
     }
 
     private void switchQuizzes(){
@@ -172,19 +174,21 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchCinderella(){
-        Intent switchActivityIntent = new Intent(this, Cinderella.class);
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.Cinderella_title));
         startActivity(switchActivityIntent);
     }
 
     private void switchGoldilocks(){
-        Intent switchActivityIntent = new Intent(this, Goldilocks.class);
-        //switchActivityIntent.putExtra("title", clickedOption.getText());
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.Goldilocks_title));
         startActivity(switchActivityIntent);
     }
 
     private void switchTheFoxAndTheCrow(){
-            Intent switchActivityIntent = new Intent(this, TheFoxAndTheCrow.class);
-            startActivity(switchActivityIntent);
+        Intent switchActivityIntent = new Intent(this, Book.class);
+        switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Fox_and_the_Crow_Title));
+        startActivity(switchActivityIntent);
         }
 
     private void switchAndrocles(){
