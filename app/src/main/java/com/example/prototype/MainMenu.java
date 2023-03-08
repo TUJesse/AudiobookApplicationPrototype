@@ -1,13 +1,17 @@
 package com.example.prototype;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
@@ -15,6 +19,12 @@ public class MainMenu extends AppCompatActivity {
     Button logOut,quizzes;
     ImageButton menuBtn;
     Button profilePage;
+    BottomNavigationView bottomNavigationView;
+
+    HomeFragment homeFragment = new HomeFragment();
+    ProfileFragment profileFragment = new ProfileFragment();
+    QuizFragment quizFragment = new QuizFragment();
+    LogOutFragment logOutFragment = new LogOutFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,30 @@ public class MainMenu extends AppCompatActivity {
         menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
         profilePage = (Button)this.findViewById(R.id.profilePage);
         quizzes = (Button)this.findViewById(R.id.quizButton);
+        bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.home:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        return true;
+                    case R.id.profile:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
+                        return true;
+                    case R.id.quiz:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
+                        return true;
+                    case R.id.logOutIcon:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
+                        return true;
+                }
+                return false;
+            }
+        });
 
 
         bookOne.setOnClickListener(new View.OnClickListener() {

@@ -348,6 +348,28 @@
         </LinearLayout>
     </ScrollView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/menuLayout">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/container"
+            android:layout_above="@+id/navBar"/>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/navBar"
+            android:layout_alignParentBottom="true"
+            app:menu="@menu/nav_menu_bar"/>
+
+
+    </RelativeLayout>
+
+
 
 
 </LinearLayout>
