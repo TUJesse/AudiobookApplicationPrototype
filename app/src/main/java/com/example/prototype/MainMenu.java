@@ -16,9 +16,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
 
-    Button logOut,quizzes;
-    ImageButton menuBtn;
-    Button profilePage;
+//    Button logOut,quizzes;
+//    ImageButton menuBtn;
+//    Button profilePage;
     BottomNavigationView bottomNavigationView;
 
     HomeFragment homeFragment = new HomeFragment();
@@ -39,11 +39,11 @@ public class MainMenu extends AppCompatActivity {
         ImageButton theFoxAndTheCrow = (ImageButton)this.findViewById(R.id.TheFoxAndTheCrow);
         ImageButton androcles = (ImageButton)this.findViewById(R.id.Androcles);
         ImageButton ratElephant = (ImageButton)this.findViewById(R.id.RatElephant);
-        Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
-        logOut = (Button)this.findViewById(R.id.logOut);
-        menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
-        profilePage = (Button)this.findViewById(R.id.profilePage);
-        quizzes = (Button)this.findViewById(R.id.quizButton);
+//        Button ttsBook = (Button)this.findViewById(R.id.ttsBook);
+//        logOut = (Button)this.findViewById(R.id.logOut);
+//        menuBtn = (ImageButton)this.findViewById(R.id.menuButton);
+//        profilePage = (Button)this.findViewById(R.id.profilePage);
+//        quizzes = (Button)this.findViewById(R.id.quizButton);
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
@@ -84,47 +84,47 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-    ttsBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchTtsBook();
-            }
-        });
-
-    logOut.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            logOutOfApp();
-        }
-    });
-
-    menuBtn.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View view) {
-            showMenu();
-        }
-    });
-
-        profilePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchToProfilePage();
-            }
-        });
-
+//    ttsBook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                switchTtsBook();
+//            }
+//        });
+//
+//    logOut.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            logOutOfApp();
+//        }
+//    });
+//
+//    menuBtn.setOnClickListener(new View.OnClickListener() {
+//        @Override
+//        public void onClick(View view) {
+//            showMenu();
+//        }
+//    });
+//
+//        profilePage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                switchToProfilePage();
+//            }
+//        });
+//
         lrrh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 switchLittleRedRidingHood();
             }
         });
-
-        quizzes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchQuizzes();
-            }
-        });
+//
+//        quizzes.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                switchQuizzes();
+//            }
+//        });
 
         cinderella.setOnClickListener(new View.OnClickListener() {
             @Override

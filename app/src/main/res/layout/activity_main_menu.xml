@@ -24,7 +24,8 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:id="@+id/scrollView"
         android:scrollbars="vertical">
 
@@ -289,7 +290,7 @@
                 </LinearLayout>
 
 
-    <Button
+    <!--<Button
         android:id="@+id/ttsBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -344,31 +345,25 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_menu_24" />
+        app:srcCompat="@drawable/ic_baseline_menu_24" />-->
+
+
         </LinearLayout>
     </ScrollView>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/menuLayout">
-
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/container"
-            android:layout_above="@+id/navBar"/>
+            />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/teal_700"
             android:id="@+id/navBar"
             android:layout_alignParentBottom="true"
             app:menu="@menu/nav_menu_bar"/>
-
-
-    </RelativeLayout>
-
 
 
 
