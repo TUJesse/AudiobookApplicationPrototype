@@ -83,6 +83,20 @@
 
         />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container"
+        />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_700"
+        android:id="@+id/navBar"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/nav_menu_bar"/>
+
 
 
 

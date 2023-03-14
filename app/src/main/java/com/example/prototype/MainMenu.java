@@ -21,11 +21,6 @@ public class MainMenu extends AppCompatActivity {
 //    Button profilePage;
     BottomNavigationView bottomNavigationView;
 
-    HomeFragment homeFragment = new HomeFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
-    QuizFragment quizFragment = new QuizFragment();
-    LogOutFragment logOutFragment = new LogOutFragment();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,24 +41,28 @@ public class MainMenu extends AppCompatActivity {
 //        quizzes = (Button)this.findViewById(R.id.quizButton);
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                         return true;
                     case R.id.profile:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
-                        return true;
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
+                        Intent intent1 = new Intent(MainMenu.this, UserProfile.class);
+                        startActivity(intent1);
+                        return false;
                     case R.id.quiz:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
-                        return true;
+                       // getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
+                        Intent intent2 = new Intent(MainMenu.this, QuizSelectionPage.class);
+                        startActivity(intent2);
+                        return false;
                     case R.id.logOutIcon:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
-                        return true;
+                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
+                        return false;
                 }
                 return false;
             }
