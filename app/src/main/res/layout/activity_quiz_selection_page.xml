@@ -43,8 +43,49 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/theThreeLittlePigs"
+            android:id="@+id/ThreeLittlePigsQuiz"
             android:text="The Three Little Pigs"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/GoldilocksQuiz"
+            android:text="Goldilocks"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/CinderellaQuiz"
+            android:text="Cinderella"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TheFoxAndTheCrowQuiz"
+            android:text="The Fox And The Crow"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/theAndroclesAndTheLionQuiz"
+            android:text="Androcles And The Lion"
+            android:textSize="20sp"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/TheRatAndTheElephantQuiz"
+            android:text="The Rat And The Elephant"
             android:textSize="20sp"
             android:padding="10dp"
             />

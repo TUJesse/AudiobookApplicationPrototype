@@ -13,8 +13,9 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class QuizSelectionPage extends AppCompatActivity implements View.OnClickListener {
 
-    TextView princessRose,LrrHood,threeLittlePigs;
+    TextView princessRose,LrrHood,threeLittlePigs,Goldilocks,The_Fox_and_theCrow,androclesAndTheLion,The_Rat_and_the_Elephant;
     BottomNavigationView bottomNavigationView;
+
 
     /*HomeFragment homeFragment = new HomeFragment();
     ProfileFragment profileFragment = new ProfileFragment();
@@ -28,17 +29,21 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
 
         princessRose = (TextView)this.findViewById(R.id.princessRoseQuiz);
         LrrHood = (TextView)this.findViewById(R.id.littleRedRidingHoodQuiz);
+        Goldilocks = (TextView)this.findViewById(R.id.GoldilocksQuiz);
+        threeLittlePigs = (TextView)this.findViewById(R.id.ThreeLittlePigsQuiz);
+        The_Fox_and_theCrow = this.findViewById(R.id.TheFoxAndTheCrowQuiz);
+        androclesAndTheLion = (TextView)this.findViewById(R.id.theAndroclesAndTheLionQuiz);
+        The_Rat_and_the_Elephant = this.findViewById(R.id.TheRatAndTheElephantQuiz);
+
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
         princessRose.setOnClickListener(this);
         LrrHood.setOnClickListener(this);
-
-        /*princessRose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchQuiz();
-            }
-        });*/
+        Goldilocks.setOnClickListener(this);
+        threeLittlePigs.setOnClickListener(this);
+        The_Fox_and_theCrow .setOnClickListener(this);
+        androclesAndTheLion .setOnClickListener(this);
+        The_Rat_and_the_Elephant .setOnClickListener(this);
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
 
