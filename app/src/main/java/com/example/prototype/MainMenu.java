@@ -3,10 +3,13 @@ package com.example.prototype;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
@@ -44,8 +47,10 @@ public class MainMenu extends AppCompatActivity {
         //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
+
                 switch (item.getItemId()){
                     case R.id.home:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
@@ -54,20 +59,22 @@ public class MainMenu extends AppCompatActivity {
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                         Intent intent1 = new Intent(MainMenu.this, UserProfile.class);
                         startActivity(intent1);
+                        finish();
                         return false;
                     case R.id.quiz:
                        // getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
                         Intent intent2 = new Intent(MainMenu.this, QuizSelectionPage.class);
                         startActivity(intent2);
+                        finish();
                         return false;
                     case R.id.logOutIcon:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
-                        return false;
+                        logOutOfApp();
+                        return true;
                 }
                 return false;
             }
         });
-
 
         bookOne.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -176,7 +183,7 @@ public class MainMenu extends AppCompatActivity {
 
     private void logOutOfApp(){
         FirebaseAuth.getInstance().signOut();
-        Intent switchActivityIntent = new Intent(this, loginPage.class);
+        Intent switchActivityIntent = new Intent(MainMenu.this, loginPage.class);
         startActivity(switchActivityIntent);
         finish();
     }
@@ -230,7 +237,7 @@ public class MainMenu extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, Book.class);
         switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Rat_and_the_Elephant_Title));
         startActivity(switchActivityIntent);
-            }
+    }
 
 
 }

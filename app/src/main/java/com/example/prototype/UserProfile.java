@@ -73,15 +73,18 @@ public class UserProfile extends AppCompatActivity {
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                         Intent intent1 = new Intent(UserProfile.this, MainMenu.class);
                         startActivity(intent1);
+                        finish();
                         //set to false so that even after switching activity this activity will keep profile highlighted
                         return false;
                     case R.id.quiz:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
                         Intent intent2 = new Intent(UserProfile.this, QuizSelectionPage.class);
                         startActivity(intent2);
+                        finish();
                         return false;
                     case R.id.logOutIcon:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
+                        logOutOfApp();
                         return false;
                 }
                 return false;
@@ -110,5 +113,12 @@ public class UserProfile extends AppCompatActivity {
         } else {
             email.setText("You are not logged in");
         }
+    }
+
+    private void logOutOfApp(){
+        FirebaseAuth.getInstance().signOut();
+        Intent switchActivityIntent = new Intent(UserProfile.this, loginPage.class);
+        startActivity(switchActivityIntent);
+        finish();
     }
 }

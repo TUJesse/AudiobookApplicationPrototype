@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class QuizSelectionPage extends AppCompatActivity implements View.OnClickListener {
 
@@ -58,11 +59,13 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                         Intent intent1 = new Intent(QuizSelectionPage.this, MainMenu.class);
                         startActivity(intent1);
+                        finish();
                         return false;
                     case R.id.profile:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                         Intent intent2 = new Intent(QuizSelectionPage.this, UserProfile.class);
                         startActivity(intent2);
+                        finish();
                         //set to false so that even after switching activity this activity will keep profile highlighted
                         return false;
                     case R.id.quiz:
@@ -70,6 +73,7 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
                         return true;
                     case R.id.logOutIcon:
                         //getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
+                        logOutOfApp();
                         return false;
                 }
                 return false;
@@ -92,5 +96,12 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent(this, Quiz.class);
         intent.putExtra("quizName", clickedOption.getText());
         this.startActivity(intent);
+    }
+
+    private void logOutOfApp(){
+        FirebaseAuth.getInstance().signOut();
+        Intent switchActivityIntent = new Intent(QuizSelectionPage.this, loginPage.class);
+        startActivity(switchActivityIntent);
+        finish();
     }
 }
