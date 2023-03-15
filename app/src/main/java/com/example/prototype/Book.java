@@ -3,6 +3,7 @@ package com.example.prototype;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -158,6 +159,8 @@ public class Book extends AppCompatActivity {
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            soundTest.start();
+
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -178,8 +181,9 @@ public class Book extends AppCompatActivity {
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            startQuiz();
         }
-        soundTest.start();
+//        soundTest.start();
 
 
     }
@@ -194,6 +198,7 @@ public class Book extends AppCompatActivity {
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            soundTest.start();
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -207,9 +212,15 @@ public class Book extends AppCompatActivity {
 
         } else {
             current_index = 0;
+
+            txtView.setText(Audiobook.pages[current_index]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
+            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            startQuiz();
         }
 
-        soundTest.start();
+//        soundTest.start();
 
 
     }
@@ -223,12 +234,14 @@ public class Book extends AppCompatActivity {
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
 
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            soundTest.start();
+
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
-                    playBackButton();
+                    play();
 
 
                 }
@@ -237,12 +250,15 @@ public class Book extends AppCompatActivity {
 
         } else {
 
-            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
+            current_index = 0;
+            //soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
 
-            soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            /*soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
@@ -251,9 +267,9 @@ public class Book extends AppCompatActivity {
 
                 }
 
-            });
+            });*/
         }
-        soundTest.start();
+//        soundTest.start();
     }
 
     private void play2() {
@@ -287,5 +303,21 @@ public class Book extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void startQuiz(){
+        new AlertDialog.Builder(this).setMessage("Do you wish to take the quiz").
+                setPositiveButton("Take Quiz",(dialogInterface, i) -> takeQuiz()).setCancelable(false).
+                setNegativeButton("Maybe Later",(dialogInterface, i) -> restartBook()).setCancelable(false).show();
+    }
+
+    private void takeQuiz(){
+        Intent intent = new Intent(this, Quiz.class);
+        intent.putExtra("quizName", titleView.getText().toString());
+        this.startActivity(intent);
+    }
+
+    private void restartBook(){
+        current_index = 0;
     }
 }
