@@ -7,7 +7,10 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,7 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 
-public class Quiz extends AppCompatActivity implements View.OnClickListener {
+public class PopUpQuiz extends AppCompatActivity {
 
     TextView totalQuestionsTextView, questionTextView;
     Button ansA,ansB,ansC,ansD,submitButton;
@@ -31,12 +34,11 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
-
+        setContentView(R.layout.activity_pop_up_quiz);
         Title = getIntent().getStringExtra("quizName");
         totalQuestions = QuestionAnswer.questionsDecider(getIntent().getStringExtra("quizName")).length;
 
-        totalQuestionsTextView = this.findViewById(R.id.total_question);
+        /*totalQuestionsTextView = this.findViewById(R.id.total_question);
         questionTextView = this.findViewById(R.id.question);
         ansA = this.findViewById(R.id.answer_A);
         ansB = this.findViewById(R.id.answer_B);
@@ -44,7 +46,7 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
         ansD = this.findViewById(R.id.answer_D);
         submitButton = this.findViewById(R.id.submit_question);
 
-        //totalQuestionsTextView.setOnClickListener(this);
+        totalQuestionsTextView.setOnClickListener(this);
         questionTextView.setOnClickListener(this);
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -55,7 +57,6 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
         loadQuestions();
     }
 
-    @Override
     public void onClick(View view) {
 
         ansA.setBackgroundColor(Color.WHITE);
@@ -135,12 +136,12 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Utility.showToast(Quiz.this,"result saved successfully");
+                    Utility.showToast(getBaseContext(),"result saved successfully");
                 }else {
-                    Utility.showToast(Quiz.this,"result didn't save");
+                    Utility.showToast(getBaseContext(),"result didn't save");
 
                 }
             }
-        });
+        });*/
     }
 }

@@ -234,7 +234,7 @@ public class MainMenu extends AppCompatActivity {
         }
 
     private void switchRatElephant(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
+        Intent switchActivityIntent = new Intent(this, BookQuizVersion.class);
         switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Rat_and_the_Elephant_Title));
         startActivity(switchActivityIntent);
     }

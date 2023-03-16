@@ -4,9 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -46,7 +50,7 @@ public class UserProfile extends AppCompatActivity {
         completedBooksPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                popUpWindow(view);
             }
         });
 
@@ -120,5 +124,25 @@ public class UserProfile extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(UserProfile.this, loginPage.class);
         startActivity(switchActivityIntent);
         finish();
+    }
+
+    public void popUpWindow(View view){
+
+        LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_pop_up_quiz,null);
+
+        DisplayMetrics dm = new DisplayMetrics();
+
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+
+        PopupWindow popupWindow = new PopupWindow(viewPopupWindow,(int)(width*.8),(int)(height*.6),true);
+        //PopupWindow popupWindow = new PopupWindow(viewPopupWindow,900,900,true);
+
+        popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
+
     }
 }
