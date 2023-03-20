@@ -11,10 +11,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
@@ -23,6 +25,7 @@ public class MainMenu extends AppCompatActivity {
 //    ImageButton menuBtn;
 //    Button profilePage;
     BottomNavigationView bottomNavigationView;
+    SwitchMaterial quizSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class MainMenu extends AppCompatActivity {
 //        profilePage = (Button)this.findViewById(R.id.profilePage);
 //        quizzes = (Button)this.findViewById(R.id.quizButton);
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
+        quizSwitch = (SwitchMaterial) this.findViewById(R.id.quizToggle);
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
 
@@ -73,6 +77,13 @@ public class MainMenu extends AppCompatActivity {
                         return true;
                 }
                 return false;
+            }
+        });
+
+        quizSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+
             }
         });
 
@@ -189,9 +200,14 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchBookTwo(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.princess_rose_and_the_golden_bird_Title));
-        startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.princess_rose_and_the_golden_bird_Title));
+        startActivity(intent);
     }
     private void switchTtsBook(){
         Intent switchActivityIntent = new Intent(this, TextToSpeechPage.class);
@@ -199,9 +215,14 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchLittleRedRidingHood(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.little_red_riding_hood_Title));
-        startActivity(switchActivityIntent);;
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.little_red_riding_hood_Title));
+        startActivity(intent);
     }
 
     private void switchQuizzes(){
@@ -210,33 +231,58 @@ public class MainMenu extends AppCompatActivity {
     }
 
     private void switchCinderella(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.Cinderella_title));
-        startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.Cinderella_title));
+        startActivity(intent);
     }
 
     private void switchGoldilocks(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.Goldilocks_title));
-        startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.Goldilocks_title));
+        startActivity(intent);
     }
 
     private void switchTheFoxAndTheCrow(){
-        Intent switchActivityIntent = new Intent(this, Book.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Fox_and_the_Crow_Title));
-        startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.The_Fox_and_the_Crow_Title));
+        startActivity(intent);
         }
 
     private void switchAndrocles(){
-            Intent switchActivityIntent = new Intent(this, Book.class);
-            switchActivityIntent.putExtra("bookTitle",getString(R.string.Androcles_and_the_Lion_Title));
-            startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.Androcles_and_the_Lion_Title));
+        startActivity(intent);
         }
 
     private void switchRatElephant(){
-        Intent switchActivityIntent = new Intent(this, BookQuizVersion.class);
-        switchActivityIntent.putExtra("bookTitle",getString(R.string.The_Rat_and_the_Elephant_Title));
-        startActivity(switchActivityIntent);
+        Intent intent;
+        if (quizSwitch.isChecked()){
+            intent = new Intent(this, BookQuizVersion.class);
+        } else {
+            intent = new Intent(this, Book.class);
+        }
+        intent.putExtra("bookTitle",getString(R.string.The_Rat_and_the_Elephant_Title));
+        startActivity(intent);
     }
 
 

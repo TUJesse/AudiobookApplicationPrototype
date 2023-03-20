@@ -189,13 +189,14 @@ public class BookQuizVersion extends AppCompatActivity {
 
     private void play(View view){
         if (current_index < Audiobook.sounds.length - 1) {
+            popUpWindow(view);
             current_index++;
 
             soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
-            popUpWindow(view);
+//            popUpWindow(view);
             soundTest.start();
 
 
@@ -210,6 +211,7 @@ public class BookQuizVersion extends AppCompatActivity {
             });
 
         } else {
+            popUpWindow(view);
             current_index = 0;
 
 
@@ -218,7 +220,7 @@ public class BookQuizVersion extends AppCompatActivity {
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
-            popUpWindow(view);
+//            popUpWindow(view);
         }
 //        soundTest.start();
 
@@ -241,20 +243,22 @@ public class BookQuizVersion extends AppCompatActivity {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
 
-                    playForForwardButton(view);
+                    //playForForwardButton(view);
+                    play(view);
                 }
 
             });
 
 
         } else {
+            popUpWindow(view);
             current_index = 0;
 
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
-            popUpWindow(view);
+//            popUpWindow(view);
         }
 
 //        soundTest.start();
@@ -458,8 +462,15 @@ public class BookQuizVersion extends AppCompatActivity {
             if (selectedAnswer.equals(QuestionAnswer.correctAnswerDecider(getIntent().getStringExtra("bookTitle"))[index])){
                 score++;
             }
-            index++;
+            //index++;
+           /* viewPopupWindow.clearFocus();
+            bookmarkButton.getRootView().requestFocus();*/
+
+            popupWindow.dismiss();
             loadQuestions();
+
+
+
 
         } else{
             selectedAnswer = clickedButton.getText().toString();
@@ -470,16 +481,16 @@ public class BookQuizVersion extends AppCompatActivity {
 
     private void loadQuestions(){
 
-        if (index == totalQuestions){
+        if (current_index == totalQuestions){
             finishQuiz();
             return;
         } else {
-            totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
-            questionTextView.setText(QuestionAnswer.questionsDecider(getIntent().getStringExtra("bookTitle"))[index]);
-            ansA.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[index][0]);
-            ansB.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[index][1]);
-            ansC.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[index][2]);
-            ansD.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[index][3]);
+            totalQuestionsTextView.setText("Question " + (current_index+1) + " Out of " + totalQuestions);
+            questionTextView.setText(QuestionAnswer.questionsDecider(getIntent().getStringExtra("bookTitle"))[current_index]);
+            ansA.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[current_index][0]);
+            ansB.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[current_index][1]);
+            ansC.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[current_index][2]);
+            ansD.setText(QuestionAnswer.answerDecider(getIntent().getStringExtra("bookTitle"))[current_index][3]);
         }
     }
 
