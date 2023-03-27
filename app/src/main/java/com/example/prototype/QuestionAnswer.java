@@ -3,24 +3,27 @@ package com.example.prototype;
 public class QuestionAnswer {
 
     private static String[] questions = {
-            "What colour was princess Rose's hair at the start of the story?",
-            "Who turned princess Rose's hair black?",
-            "What advice did the golden bird give princess rose?",
-            "Who gave princess Rose the rose petals?"
+            "What colour was the princesses hair",
+            "What did the princess and the golden bird do every evening",
+            "What did princess rose dip her head into",
+            "What did the witch do after she cast the spell",
+            "What was inside the box the prince had"
     };
 
     private static String[][] answers = {
-            {"black","red","blue","green"},
-            {"the golden bird","the prince","the witch","the king"},
-            {"black hair in rose water","to ask the prince for help","to paint her hair red","to say sorry to the witch"},
-            {"the witch","the golden bird","the king","the prince"}
+            {"Black","Red","Blue","Gold"},
+            {"Sing","Play","Read","Swim"},
+            {"Rose Water","Hot Water","Warm Water","Wold Water"},
+            {"Made the spell permanent","Put a spell on her legs","Picked up all of the rose blooms","Put a spell on her hands"},
+            {"A magic potion", "A single red hair", "Some magic dust", "A mysterious glass"}
     };
 
     private static String[] correctAnswers = {
-            "red",
-            "the witch",
-            "black hair in rose water",
-            "the prince"
+            "Red",
+            "Sing",
+            "Rose Water",
+            "Picked up all of the rose blooms",
+            "A single red hair"
     };
 
     private static String[] RedRidingHoodQuestions = {
@@ -46,39 +49,54 @@ public class QuestionAnswer {
 
     private static String[] CinderellaQuestions = {
             "How many sisters did Cinderella have?",
-            "How many times did Cinderella go to the ball?",
-            "When did Cinderella have to leave the ball?",
-            "How could Prince find Cinderella?"
+            "what were the young ladies invited too?",
+            "where was cinderella sitting by?",
+            "What colour was the coach that took cinderella?",
+            "When did the prince find the slipper?",
+            "Who found cinderella by the fire place?",
+            "What was cinderella dressed in for the palace?",
+            "When did cinderella wed the prince?"
     };
     private static String[][] Cinderellaanswers = {
             {"One","Three","Two","Ten"},
-            {"Fifteen Times","One Time","Three","Seven Times"},
-            {"Midnight","Morning Time","Evening Time","Midday"},
-            {"He was looking for a dress, which will approach the lost flap","He was looking for a second one","He gave trying on a shoe, which Cinderella lost","He was looking Money on the Floor"}
+            {"A party","A Royal ball","A Movie","A Concert"},
+            {"Bedroom","Sitting room","Fireplace","Outside"},
+            {"Red","Blue","Golden","Green"},
+            {"Evening","Afternoon","Night","Morning"},
+            {"The mother","The royal servant","The sister","The prince"},
+            {"Pyjamas","Dress","Tracksuit","Rags"},
+            {"Next Year","Next Day","Next Month","Next Week"}
     };
     private static String[] CinderellaCorrectAnswers = {
             "Two",
-            "Two Times",
-            "Midnight",
-            "He gave trying on a shoe, which Cinderella lost"
+            "A Royal ball",
+            "Fireplace",
+            "Golden",
+            "Morning",
+            "The royal servant",
+            "Rags",
+            "Next Day"
     };
     private static String[] GoldilocksQuestions = {
-            "What hair colour Goldilocks have?",
-            "How many bowls were on the table?",
-            "What did Goldilocks do when she saw the three bears?",
-            "Who did live in the house?"
+            "What colour was Goldilocks' hair?",
+            "Which bowl of porridge did Goldilocks say was just right?",
+            "What did the bears say when they returned home to eat their porridge?",
+            "Who's bed was Goldilocks sleeping in?",
+            "Who's house did Goldilocks run off to when she was found by the three bears?"
     };
     private static String[][] GoldilocksAnswers = {
             {"Black","Green","Gold","Brown"},
-            {"Three","Ten","Five","Seven"},
-            {"She danced with the bears.","She ran into the forest.","She ate more porridge.","She kept sleeping"},
-            {"The three bears","The three pigs","The three lions","The three cats"}
+            {"The great huge bear's bowl","The middle bear's bowl","The small bear's bowl","No bowl was just right"},
+            {"Who ate my porridge","Let us eat","Where is my porridge","Somebody has been at my porridge"},
+            {"The big bear's bed","The small bear's bed","The middle bear's bed","Her bed"},
+            {"Her Grandmama's house","Her Mother's house","Her Grandpapa's house","Her father's house"}
     };
     private static String[] GoldilocksCorrectAnswers = {
             "Gold",
-            "Three",
-            "She ran into the forest",
-            "he three bears"
+            "The small bear's bowl",
+            "Somebody has been at my porridge",
+            "The small bear's bed",
+            "Her Grandmama's house"
     };
     private static String[] The_Fox_and_theCrowQuestions = {
             "What animal does the Fox see on the limb of a tree??",
@@ -99,21 +117,18 @@ public class QuestionAnswer {
             "Caw"
     };
     private static String[] androclesAndTheLionQuestions = {
-            "Where did Androcles take shelter?",
-            "What was Androcles' first reaction when he saw a lion?",
-            "What had pierced one of the lion's toes?",
+            "Where did Androcles flee to, to escape from his master?",
+            "What did Androcles do when he saw the lion in pain?",
             "Who ordered that Androcles should be set free?"
     };
     private static String[][] androclesAndTheLionAnswers = {
             {"Garden","Forest","ship","Orchard"},
-            {"Stand Still","Turn and Flee","Kill","Clim a Tree"},
-            {"A small needle","A big thorn","Stone","pin"},
-            {"The Police Man","the king","emperor ","The old lady"}
+            {"Stand Still","Turn and Flee","He drew the thorn out of the Lion's paw","Clim a Tree"},
+            {"his master","the king","emperor","The old lady"}
     };
     private static String[] androclesAndTheLionCorrectAnswers = {
             "Forest",
-            "Turn and Flee",
-            "A big thorn",
+            "He drew the thorn out of the Lion's paw",
             "emperor"
     };
 
