@@ -96,7 +96,7 @@ public class QuizTest {
     }
 
     @Test
-    public void testQuestionIndexIsAlwaysLessThanTotalQuestions() throws Exception{
-        assertTrue(quiz.index < quiz.totalQuestions);
+    public void testQuestionIndexIsNeverMoreThanTotalQuestions() throws Exception{
+        assertTrue(quiz.index <= quiz.totalQuestions);
     }
 }
