@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class UserProfile extends AppCompatActivity {
 
-    Button bookmarkPageBtn, completedBooksPageBtn, quizResultsPageBtn;
+    ImageButton bookmarkPageBtn, quizResultsPageBtn;
     TextView email;
 
     BottomNavigationView bottomNavigationView;
@@ -30,9 +31,9 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
-        bookmarkPageBtn = (Button)this.findViewById(R.id.bookmarkedBooks);
-        completedBooksPageBtn = (Button)this.findViewById(R.id.booksCompleted);
-        quizResultsPageBtn = (Button)this.findViewById(R.id.quizResults);
+        bookmarkPageBtn = (ImageButton) this.findViewById(R.id.bookmarkedBooks);
+        //completedBooksPageBtn = (Button)this.findViewById(R.id.booksCompleted);
+        quizResultsPageBtn = (ImageButton) this.findViewById(R.id.quizResults);
         email = (TextView)this.findViewById(R.id.userEmail);
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
@@ -47,12 +48,12 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-        completedBooksPageBtn.setOnClickListener(new View.OnClickListener() {
+        /*completedBooksPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 popUpWindow(view);
             }
-        });
+        });*/
 
         quizResultsPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
