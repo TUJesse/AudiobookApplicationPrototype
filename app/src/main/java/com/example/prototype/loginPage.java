@@ -99,14 +99,15 @@ public class loginPage extends AppCompatActivity {
     }
 
     boolean validation(String email, String pass){
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailAddress.setError("Invalid email");
-            return false;
-        }
-        if (pass.length() < 5){
-            password.setError("Password length must be greater than 5");
-            return false;
+        if (email != null && pass != null){
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                emailAddress.setError("Invalid email");
+                return false;
+            }
+            if (pass.length() < 5){
+                password.setError("Password length must be greater than 5");
+                return false;
+            }
         }
         return true;
     }

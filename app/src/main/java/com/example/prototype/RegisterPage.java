@@ -63,18 +63,19 @@ public class RegisterPage extends AppCompatActivity {
     }
 
     boolean validation(String email, String pass, String confirmPass){
-
-        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            emailAddress.setError("Invalid email");
-            return false;
-        }
-        if (pass.length() < 5){
-            password.setError("Password length must be greater than 5");
-            return false;
-        }
-        if (!pass.equals(confirmPass)){
-            confirmPassword.setError("Passwords do not match");
-            return false;
+        if (email != null && pass != null && confirmPass != null){
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+                emailAddress.setError("Invalid email");
+                return false;
+            }
+            if (pass.length() < 5){
+                password.setError("Password length must be greater than 5");
+                return false;
+            }
+            if (!pass.equals(confirmPass)){
+                confirmPassword.setError("Passwords do not match");
+                return false;
+            }
         }
         return true;
     }
