@@ -62,44 +62,54 @@ public class BookBuilder extends AppCompatActivity {
 
         }
 
-        public void setSoundTest(MediaPlayer soundTest) {
+        public Builder setSoundTest(MediaPlayer soundTest) {
             this.soundTest = soundTest;
+            return this;
         }
 
-        public void setSounds(int[] sounds) {
+        public Builder setSounds(int[] sounds) {
             this.sounds = sounds;
+            return this;
         }
 
-        public void setPages(int[] pages) {
+        public Builder setPages(int[] pages) {
             this.pages = pages;
+            return this;
         }
 
-        public void setImages(int[] images) {
+        public Builder setImages(int[] images) {
             this.images = images;
+            return this;
         }
 
-        public void setPageNumbers(int numberOfPages) {
+        public Builder setPageNumbers(int numberOfPages) {
             this.pageNumbers = new String[numberOfPages];
+            return this;
         }
 
-        public void setCurrent_index(int current_index) {
+        public Builder setCurrent_index(int current_index) {
             this.current_index = current_index;
+            return this;
         }
 
-        public void setTxtView(TextView view) {
+        public Builder setTxtView(TextView view) {
             this.txtView = (view);
+            return this;
         }
 
-        public void setPageNumberView(TextView pageNumberView) {
+        public Builder setPageNumberView(TextView pageNumberView) {
             this.pageNumberView = pageNumberView;
+            return this;
         }
 
-        public void setTitleView(String title) {
+        public Builder setTitleView(String title) {
             this.titleView.setText(title);
+            return this;
         }
 
-        public void setImageView(ImageView imageView) {
+        public Builder setImageView(ImageView imageView) {
             this.imageView = imageView;
+            return this;
         }
 
         public BookBuilder build(){
