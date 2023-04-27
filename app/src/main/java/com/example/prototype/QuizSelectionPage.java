@@ -14,14 +14,9 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class QuizSelectionPage extends AppCompatActivity implements View.OnClickListener {
 
-    TextView princessRose,LrrHood,threeLittlePigs,Goldilocks,The_Fox_and_theCrow,androclesAndTheLion,The_Rat_and_the_Elephant;
+    TextView princessRose,LrrHood,threeLittlePigs,Goldilocks,
+            The_Fox_and_theCrow,androclesAndTheLion,The_Rat_and_the_Elephant,Cinderella;
     BottomNavigationView bottomNavigationView;
-
-
-    /*HomeFragment homeFragment = new HomeFragment();
-    ProfileFragment profileFragment = new ProfileFragment();
-    QuizFragment quizFragment = new QuizFragment();
-    LogOutFragment logOutFragment = new LogOutFragment();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +30,7 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
         The_Fox_and_theCrow = this.findViewById(R.id.TheFoxAndTheCrowQuiz);
         androclesAndTheLion = (TextView)this.findViewById(R.id.theAndroclesAndTheLionQuiz);
         The_Rat_and_the_Elephant = this.findViewById(R.id.TheRatAndTheElephantQuiz);
+        Cinderella = (TextView)this.findViewById(R.id.CinderellaQuiz);
 
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
@@ -42,9 +38,10 @@ public class QuizSelectionPage extends AppCompatActivity implements View.OnClick
         LrrHood.setOnClickListener(this);
         Goldilocks.setOnClickListener(this);
         threeLittlePigs.setOnClickListener(this);
-        The_Fox_and_theCrow .setOnClickListener(this);
-        androclesAndTheLion .setOnClickListener(this);
-        The_Rat_and_the_Elephant .setOnClickListener(this);
+        The_Fox_and_theCrow.setOnClickListener(this);
+        androclesAndTheLion.setOnClickListener(this);
+        The_Rat_and_the_Elephant.setOnClickListener(this);
+        Cinderella.setOnClickListener(this);
 
         //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
 

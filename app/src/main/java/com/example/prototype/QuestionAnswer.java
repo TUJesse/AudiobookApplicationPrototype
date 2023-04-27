@@ -99,22 +99,25 @@ public class QuestionAnswer {
             "Her Grandmama's house"
     };
     private static String[] The_Fox_and_theCrowQuestions = {
-            "What animal does the Fox see on the limb of a tree??",
             "What was the setting?",
+            "What animal does the Fox see on the limb of a tree??",
             "What is the problem",
-            "What did the Crow say?"
+            "What did the Crow say?",
+            "How did Fox get Crow to drop the cheese?"
     };
     private static String[][] The_Fox_and_theCrowAnswers = {
-            {"Eagle","Pigeon","Crow","Cow"},
             {"Forest","Mountain","Village","Sahara"},
+            {"Eagle","Pigeon","Crow","Cow"},
             {"The crow was stuck in the tree","The fox was hungry and wanted crow's food","Crow was afraid of the fox","There was no problem"},
-            {"Caw","wow","Boo","Moo"}
+            {"Caw","wow","Boo","Moo"},
+            {"The Crow feels bad for the Fox after he tells her a sob story "," because the crow started crying after sob story","The Crow is flattered by the Fox's compliments, so much so that she drops her food","The Crow isn't hungry and would rather sing than eat"}
     };
     private static String[] The_Fox_and_theCrowCorrectAnswers = {
-            "Crow",
             "Forest",
+            "Crow",
             "The fox was hungry and wanted crow's food",
-            "Caw"
+            "Caw",
+            "The Crow is flattered by the Fox's compliments, so much so that she drops her food"
     };
     private static String[] androclesAndTheLionQuestions = {
             "Where did Androcles flee to, to escape from his master?",
@@ -135,19 +138,16 @@ public class QuestionAnswer {
     private static String[] The_Rat_and_the_ElephantQuestions = {
             "How did the rat describe himself?",
             "How does the rat describe the elephant?",
-            "Who is the narrator of the story?",
             "Why did the rat approach the royal master and his suite?"
     };
     private static String[][] The_Rat_and_the_ElephantAnswers = {
             {"pretty and scary","Cute and beautiful","Ugly","Scary"},
             {"Beastly looking, polite and cute","Huge, scary and pretty","Fat and cute","Big, fat and ugly"},
-            {"An unknown narrator","The Rat","the Elephant","bird"},
             {"Because the rat saw the elephant and got jealous","because he was sad","Because he wanted to be a royal rat","Because of the loud noise"}
     };
     private static String[] The_Rat_and_the_ElephantCorrectAnswers = {
             "Cute and beautiful",
             "Big, fat and ugly",
-            "The Rat",
             "Because of the loud noise"
     };
     private static String[] The_Three_Little_PigsQuestions = {
