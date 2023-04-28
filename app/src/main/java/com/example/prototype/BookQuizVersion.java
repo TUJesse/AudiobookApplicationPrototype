@@ -425,10 +425,9 @@ public class BookQuizVersion extends AppCompatActivity {
         //show popup window
         popupWindow.setFocusable(false);
         popupWindow.setOutsideTouchable(false);
+        popupWindow.setAnimationStyle(androidx.appcompat.R.style.Animation_AppCompat_DropDownUp);
         popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
         setButtonsUnClickable();
-        popupWindow.setAnimationStyle(androidx.appcompat.R.style.Animation_AppCompat_DropDownUp);
-
     }
 
     private void setButtonsUnClickable(){
