@@ -42,6 +42,12 @@ public class BookQuizVersion extends AppCompatActivity {
     String selectedAnswer = "";
     String Title;
 
+    ImageButton playButton;
+    ImageButton pauseButton;
+    ImageButton stopButton;
+    ImageButton backButton;
+    ImageButton nextButton;
+
     MediaPlayer soundTest;
     int current_index = 0;
     TextView txtView;
@@ -110,11 +116,12 @@ public class BookQuizVersion extends AppCompatActivity {
         titleView.setText(Audiobook.title);
         imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
         bookmarkButton = (ImageButton) this.findViewById(R.id.addBookmarkButton);
-        ImageButton playButton = (ImageButton) this.findViewById(R.id.playButtonBook);
-        ImageButton pauseButton = (ImageButton)this.findViewById(R.id.pauseButtonBook);
-        ImageButton stopButton = (ImageButton)this.findViewById(R.id.stopButtonBook);
-        ImageButton backButton = (ImageButton)this.findViewById(R.id.backButtonBook);
-        ImageButton nextButton = (ImageButton)this.findViewById(R.id.nextButtonBook);
+         playButton = (ImageButton) this.findViewById(R.id.playButtonBook);
+         pauseButton = (ImageButton)this.findViewById(R.id.pauseButtonBook);
+         stopButton = (ImageButton)this.findViewById(R.id.stopButtonBook);
+         backButton = (ImageButton)this.findViewById(R.id.backButtonBook);
+         nextButton = (ImageButton)this.findViewById(R.id.nextButtonBook);
+
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,14 +197,14 @@ public class BookQuizVersion extends AppCompatActivity {
     private void play(View view){
         if (current_index < Audiobook.sounds.length - 1) {
             popUpWindow(view);
-            current_index++;
+            //current_index++;
 
             soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
 //            popUpWindow(view);
-            soundTest.start();
+            //soundTest.start();
 
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -212,14 +219,14 @@ public class BookQuizVersion extends AppCompatActivity {
 
         } else {
             popUpWindow(view);
-            current_index = 0;
+            //current_index = 0;
 
 
-            soundTest.stop();
-            soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
-            txtView.setText(Audiobook.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
-            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
+            //soundTest.stop();
+            soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[0]);
+            txtView.setText(Audiobook.pages[0]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[0]));
+            pageNumberView.setText(Audiobook.pageNumbers[0]);
 //            popUpWindow(view);
         }
 //        soundTest.start();
@@ -231,13 +238,14 @@ public class BookQuizVersion extends AppCompatActivity {
 
         soundTest.stop();
         if (current_index < Audiobook.sounds.length-1) {
-            current_index++;
+            popUpWindow(view);
+            //current_index++;
 
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
-            soundTest.start();
+            //soundTest.start();
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
@@ -252,12 +260,12 @@ public class BookQuizVersion extends AppCompatActivity {
 
         } else {
             popUpWindow(view);
-            current_index = 0;
+            //current_index = 0;
 
-            txtView.setText(Audiobook.pages[current_index]);
-            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
-            pageNumberView.setText(Audiobook.pageNumbers[current_index]);
-            soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
+            txtView.setText(Audiobook.pages[0]);
+            imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[0]));
+            pageNumberView.setText(Audiobook.pageNumbers[0]);
+            soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[0]);
 //            popUpWindow(view);
         }
 
@@ -359,40 +367,11 @@ public class BookQuizVersion extends AppCompatActivity {
     }
 
     private void restartBook(){
+        score = 0;
         current_index = 0;
     }
 
     public void popUpWindow(View view){
-
-        /*LayoutInflater layoutInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-
-        View viewPopupWindow = layoutInflater.inflate(R.layout.activity_pop_up_quiz,null);
-
-        DisplayMetrics dm = new DisplayMetrics();
-
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        PopupWindow popupWindow = new PopupWindow(viewPopupWindow,(int)(width*.9),(int)(height*.7),true);*/
-
-
-//_____________________________________________________________________________________________________________________________________________________________________________
-        //popup window Logic
-
-        /*TextView totalQuestionsTextView, questionTextView;
-        Button ansA,ansB,ansC,ansD,submitButton;
-
-        int score = 0;
-        int totalQuestions;
-        int index = 0;
-        String selectedAnswer = "";
-        String Title;
-
-        Title = getIntent().getStringExtra("bookTitle");
-        totalQuestions = QuestionAnswer.questionsDecider(getIntent().getStringExtra("bookTitle")).length;*/
-
 
         totalQuestionsTextView = viewPopupWindow.findViewById(R.id.total_question);
         questionTextView = viewPopupWindow.findViewById(R.id.question);
@@ -440,13 +419,34 @@ public class BookQuizVersion extends AppCompatActivity {
         });
 
         loadQuestions();
+        current_index++;
 
         //_____________________________________________________________________________________________________________________________________________________________________________
         //show popup window
+        popupWindow.setFocusable(false);
+        popupWindow.setOutsideTouchable(false);
         popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
+        setButtonsUnClickable();
+        popupWindow.setAnimationStyle(androidx.appcompat.R.style.Animation_AppCompat_DropDownUp);
 
+    }
 
+    private void setButtonsUnClickable(){
+        playButton.setClickable(false);
+        pauseButton.setClickable(false);
+        stopButton.setClickable(false);
+        backButton.setClickable(false);
+        nextButton.setClickable(false);
+        bookmarkButton.setClickable(false);
+    }
 
+    private void setButtonsClickable(){
+        playButton.setClickable(true);
+        pauseButton.setClickable(true);
+        stopButton.setClickable(true);
+        backButton.setClickable(true);
+        nextButton.setClickable(true);
+        bookmarkButton.setClickable(true);
     }
 
     public void clicked(View view) {
@@ -459,7 +459,7 @@ public class BookQuizVersion extends AppCompatActivity {
         Button clickedButton = (Button) view;
 
         if (clickedButton.getId() == R.id.submit_question){
-            if (selectedAnswer.equals(QuestionAnswer.correctAnswerDecider(getIntent().getStringExtra("bookTitle"))[index])){
+            if (selectedAnswer.equals(QuestionAnswer.correctAnswerDecider(getIntent().getStringExtra("bookTitle"))[current_index-1])){
                 score++;
             }
             //index++;
@@ -469,6 +469,10 @@ public class BookQuizVersion extends AppCompatActivity {
             popupWindow.dismiss();
             loadQuestions();
 
+            if (current_index < totalQuestions){
+            soundTest.start();
+            }
+
 
 
 
@@ -476,6 +480,7 @@ public class BookQuizVersion extends AppCompatActivity {
             selectedAnswer = clickedButton.getText().toString();
             clickedButton.setBackgroundColor(Color.MAGENTA);
         }
+        setButtonsClickable();
 
     }
 
@@ -500,20 +505,23 @@ public class BookQuizVersion extends AppCompatActivity {
                 setNegativeButton("save results and exit",(dialogInterface, i) -> saveQuizScore()).setCancelable(false).show();
     }
 
-    private void quizPage(){
-        Intent intent = new Intent(this, QuizSelectionPage.class);
+    private void MainMenu(){
+        Intent intent = new Intent(this, MainMenu.class);
         startActivity(intent);
         finish();
     }
 
     private void restart(){
+        soundTest.stop();
         score = 0;
-        index = 0;
-        loadQuestions();
+        current_index = 0;
+        soundTest = MediaPlayer.create(BookQuizVersion.this, Audiobook.sounds[current_index]);
+        //loadQuestions();
         totalQuestionsTextView.setText("Question " + (index+1) + " Out of " + totalQuestions);
     }
 
     void saveQuizScore (){
+        soundTest.stop();
         String quizTitle = Title;
         String quizScore = score + " out of "+ totalQuestions;
 
@@ -524,7 +532,7 @@ public class BookQuizVersion extends AppCompatActivity {
 
         saveQuizScoreToFirebase(quizResults);
 
-        quizPage();
+        MainMenu();
     }
 
     void saveQuizScoreToFirebase(QuizResults quizResults){

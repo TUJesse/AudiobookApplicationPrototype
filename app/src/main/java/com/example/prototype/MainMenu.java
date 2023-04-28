@@ -34,7 +34,6 @@ public class MainMenu extends AppCompatActivity {
 
         Button bookOne = (Button)this.findViewById(R.id.bookOne);
         ImageButton bookTwo = (ImageButton)this.findViewById(R.id.bookTwo);
-        ImageButton lrrh = (ImageButton)this.findViewById(R.id.littleRedRidingHood);
         ImageButton cinderella = (ImageButton)this.findViewById(R.id.Cinderella);
         ImageButton goldilocks = (ImageButton)this.findViewById(R.id.Goldilocks);
         ImageButton theFoxAndTheCrow = (ImageButton)this.findViewById(R.id.TheFoxAndTheCrow);
@@ -129,12 +128,6 @@ public class MainMenu extends AppCompatActivity {
 //            }
 //        });
 //
-        lrrh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                switchLittleRedRidingHood();
-            }
-        });
 //
 //        quizzes.setOnClickListener(new View.OnClickListener() {
 //            @Override
