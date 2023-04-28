@@ -37,48 +37,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".ThreePigs"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".RatElephant"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Androcles"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".TheFoxAndTheCrow"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Cinderella"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Goldilocks"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".QuizResultsPage"
             android:exported="false"
             android:screenOrientation="portrait">
@@ -103,21 +61,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".LittleRedRidingHoodBook"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".UserProfile"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".BookDecider"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -168,13 +112,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".BookTwoActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".MainMenu"
             android:exported="false">
 
@@ -186,13 +123,6 @@
              </intent-filter>
             -->
 
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

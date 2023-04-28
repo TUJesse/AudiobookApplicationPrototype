@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Prototype</string>
+    <string name="app_name">Hear and Learn</string>
     <string name="play_button_prompt">press to play</string>
     <string name="text_for_sound">Welcome to the world of java sound. with the new java sound api you can control audio playback or record new audio content. this sound was created using java sound.</string>
     <string name="text_for_sound2">THIS IS PAGE TWO,
