@@ -21,14 +21,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".PopUpQuiz"
-            android:exported="false"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Book"
             android:exported="false"
             android:screenOrientation="portrait">
