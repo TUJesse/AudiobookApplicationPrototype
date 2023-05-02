@@ -20,9 +20,7 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
 
     TextView totalQuestionsTextView, questionTextView;
     Button ansA,ansB,ansC,ansD,submitButton;
-
     int score = 0;
-    //int totalQuestions = QuestionAnswer.questions.length;
     int totalQuestions;
     int index = 0;
     String selectedAnswer = "";
@@ -44,7 +42,6 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
         ansD = this.findViewById(R.id.answer_D);
         submitButton = this.findViewById(R.id.submit_question);
 
-        //totalQuestionsTextView.setOnClickListener(this);
         questionTextView.setOnClickListener(this);
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -57,7 +54,6 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-
         ansA.setBackgroundColor(Color.WHITE);
         ansB.setBackgroundColor(Color.WHITE);
         ansC.setBackgroundColor(Color.WHITE);
@@ -80,7 +76,6 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
     }
 
     private void loadQuestions(){
-
         if (index == totalQuestions){
             finishQuiz();
             return;
@@ -138,7 +133,6 @@ public class Quiz extends AppCompatActivity implements View.OnClickListener {
                     Utility.showToast(Quiz.this,"result saved successfully");
                 }else {
                     Utility.showToast(Quiz.this,"result didn't save");
-
                 }
             }
         });

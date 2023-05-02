@@ -22,10 +22,7 @@ public class loginPage extends AppCompatActivity {
     TextView password;
     ProgressBar progressBar;
     TextView directToRegister;
-
-
     Button loginButton;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +32,6 @@ public class loginPage extends AppCompatActivity {
         emailAddress = (TextView) findViewById(R.id.emailAddress);
         password = (TextView) findViewById(R.id.password);
         directToRegister = (TextView) findViewById(R.id.registerText);
-        //progressBar = (ProgressBar) findViewById(R.id.progressBar);
-
         loginButton = (Button) findViewById(R.id.loginBtn);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +67,6 @@ public class loginPage extends AppCompatActivity {
     }
 
     public void loginAccountInFirebase(String email, String pass){
-
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -87,7 +81,6 @@ public class loginPage extends AppCompatActivity {
                     }
                 } else{
                     Utility.showToast(loginPage.this, task.getException().getLocalizedMessage());
-
                 }
             }
         });

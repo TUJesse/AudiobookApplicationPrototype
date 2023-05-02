@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BookBuilder extends AppCompatActivity {
@@ -15,13 +14,11 @@ public class BookBuilder extends AppCompatActivity {
     int [] images;
     String title;
     String [] pageNumbers;
-    int current_index = 0;
     TextView txtView;
     TextView pageNumberView;
     TextView titleView;
     ImageView imageView;
     ImageButton bookmarkButton;
-    int page1,page2,page3,page4,page5;
 
     public BookBuilder(Builder builder){
         this.soundTest = builder.soundTest;
@@ -48,18 +45,13 @@ public class BookBuilder extends AppCompatActivity {
         TextView titleView;
         ImageView imageView;
         String title;
-        int page1,page2,page3,page4,page5;
 
         public Builder(String title, int numberOfPages, int [] sounds, int [] pages, int [] images, String[] pageNumbers){
-            //this.titleView.setText(title);
             this.title = title;
-            //Context context = Androcles2.this;
-            //this.pageNumbers = new String[numberOfPages];
             this.sounds = sounds;
             this.pages = pages;
             this.images = images;
             this.pageNumbers = pageNumbers;
-
         }
 
         public Builder setSoundTest(MediaPlayer soundTest) {

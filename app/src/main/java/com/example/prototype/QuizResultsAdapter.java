@@ -37,9 +37,9 @@ public class QuizResultsAdapter extends FirestoreRecyclerAdapter<QuizResults, Qu
 
     @Override
     protected void onBindViewHolder(@androidx.annotation.NonNull QuizResultViewHolder holder, int position, @androidx.annotation.NonNull QuizResults quizResults) {
-        holder.titleTextView.setText(quizResults.title);
-        holder.scoreTextView.setText(quizResults.score);
-        holder.timestampTextView.setText(Utility.timestampToString(quizResults.timestamp));
+        holder.titleTextView.setText(quizResults.getTitle());
+        holder.scoreTextView.setText(quizResults.getScore());
+        holder.timestampTextView.setText(Utility.timestampToString(quizResults.getTimestamp()));
 
         holder.itemView.setOnClickListener((view) ->{
             String docId = this.getSnapshots().getSnapshot(position).getId();
@@ -81,11 +81,9 @@ public class QuizResultsAdapter extends FirestoreRecyclerAdapter<QuizResults, Qu
                     deleteQuizResultFromFirebase(docID);
                     context.startActivity(intent);
 
-
                 } else if (menuItem.getItemId() == R.id.deleteQuiz){
                     deleteQuizResultFromFirebase(docID);
                 }
-
                 return true;
             }
         });

@@ -34,14 +34,12 @@ public class BookmarkPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showMenu();
-                //setRecyclerView();
 
             }
         });
     }
 
     private void showMenu(){
-
     }
 
     private void setRecyclerView(){
@@ -70,26 +68,4 @@ public class BookmarkPage extends AppCompatActivity {
         bookmarkAdapter.notifyDataSetChanged();
     }
 
-    public void popUpMenu(View view, String Book){
-        PopupMenu popupMenu = new PopupMenu(BookmarkPage.this, view);
-        popupMenu.getMenuInflater().inflate(R.menu.popup_menu_bookmark, popupMenu.getMenu());
-
-        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem menuItem) {
-
-                if (menuItem.getItemId() == R.id.goToBookmarkedPage) {
-                    if (Book.equals("Princess Rose And The Golden Bird")) {
-                        //Intent switchActivityIntent = new Intent(this, BookTwoActivity.class);
-                        //startActivity(switchActivityIntent);
-                    }
-
-                }
-
-                return true;
-            }
-
-            });
-
-    }
 }

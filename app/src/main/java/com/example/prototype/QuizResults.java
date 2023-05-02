@@ -3,9 +3,9 @@ package com.example.prototype;
 import com.google.firebase.Timestamp;
 
 public class QuizResults {
-    String title;
-    String score;
-    Timestamp timestamp;
+    private String title;
+    private String score;
+    private Timestamp timestamp;
 
     public QuizResults() {
     }

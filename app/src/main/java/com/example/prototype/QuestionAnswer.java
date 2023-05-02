@@ -169,14 +169,6 @@ public class QuestionAnswer {
             "Hard Work pays off"
     };
 
-
-
-
-
-
-
-
-
     public static String[] questionsDecider(String quizName){
         String [] selectedQuestions = {};
         if (quizName.equals("Princess Rose And The Golden Bird")){
@@ -258,6 +250,4 @@ public class QuestionAnswer {
         }
         return selectedCorrectAnswers;
     }
-
-
 }

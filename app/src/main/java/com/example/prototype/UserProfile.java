@@ -1,7 +1,6 @@
 package com.example.prototype;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -13,7 +12,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,14 +30,11 @@ public class UserProfile extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         bookmarkPageBtn = (ImageButton) this.findViewById(R.id.bookmarkedBooks);
-        //completedBooksPageBtn = (Button)this.findViewById(R.id.booksCompleted);
         quizResultsPageBtn = (ImageButton) this.findViewById(R.id.quizResults);
         email = (TextView)this.findViewById(R.id.userEmail);
         bottomNavigationView = (BottomNavigationView)this.findViewById(R.id.navBar);
 
         displayEmail();
-
-
 
         bookmarkPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,13 +43,6 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-        /*completedBooksPageBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popUpWindow(view);
-            }
-        });*/
-
         quizResultsPageBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +50,6 @@ public class UserProfile extends AppCompatActivity {
             }
         });
 
-       // getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
 
         //set profile icon to selected
         bottomNavigationView.getMenu().findItem(R.id.profile).setChecked(true);
@@ -72,23 +59,19 @@ public class UserProfile extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()){
                     case R.id.profile:
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,profileFragment).commit();
                         return true;
                     case R.id.home:
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,homeFragment).commit();
                         Intent intent1 = new Intent(UserProfile.this, MainMenu.class);
                         startActivity(intent1);
                         finish();
                         //set to false so that even after switching activity this activity will keep profile highlighted
                         return false;
                     case R.id.quiz:
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,quizFragment).commit();
                         Intent intent2 = new Intent(UserProfile.this, QuizSelectionPage.class);
                         startActivity(intent2);
                         finish();
                         return false;
                     case R.id.logOutIcon:
-                        //getSupportFragmentManager().beginTransaction().replace(R.id.container,logOutFragment).commit();
                         logOutOfApp();
                         return false;
                 }
@@ -103,9 +86,7 @@ public class UserProfile extends AppCompatActivity {
         Intent switchActivityIntent = new Intent(this, BookmarkPage.class);
         startActivity(switchActivityIntent);
     }
-    private void switchToCompletedBooks(){
 
-    }
     private void switchToQuizResults(){
         Intent switchActivityIntent = new Intent(this, QuizResultsPage.class);
         startActivity(switchActivityIntent);
@@ -141,7 +122,6 @@ public class UserProfile extends AppCompatActivity {
         int height = dm.heightPixels;
 
         PopupWindow popupWindow = new PopupWindow(viewPopupWindow,(int)(width*.8),(int)(height*.6),true);
-        //PopupWindow popupWindow = new PopupWindow(viewPopupWindow,900,900,true);
 
         popupWindow.showAtLocation(view, Gravity.CENTER,0,0);
 

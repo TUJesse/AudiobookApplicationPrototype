@@ -3,9 +3,7 @@ package com.example.prototype;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

@@ -2,7 +2,6 @@ package com.example.prototype;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -11,16 +10,13 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentReference;
 import java.util.Objects;
 
-
 public class Book extends AppCompatActivity {
-
     MediaPlayer soundTest;
     int current_index = 0;
     TextView txtView;
@@ -28,9 +24,7 @@ public class Book extends AppCompatActivity {
     TextView pageNumberView;
     ImageView imageView;
     ImageButton bookmarkButton;
-
     BookBuilder Audiobook;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,21 +47,15 @@ public class Book extends AppCompatActivity {
             Audiobook = new BookDirector().getPrincessRoseAndTheGoldenBird();
         }
 
-
         for (int i = 0; i < Audiobook.pageNumbers.length; i ++){
-
             if (Objects.equals(Audiobook.pageNumbers[i], getIntent().getStringExtra("page"))){
                 current_index = i;
             }
         }
-
         txtView = (TextView) findViewById(R.id.textDisplayBook);
         pageNumberView = (TextView)this.findViewById(R.id.bookPageNumber);
         titleView = (TextView)this.findViewById(R.id.bookTitle);
         imageView = (ImageView)this.findViewById(R.id.imageView1);
-
-
-
         pageNumberView.setText(Audiobook.pageNumbers[current_index]);
         txtView.setText(Audiobook.pages[current_index]);
         soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
@@ -83,9 +71,7 @@ public class Book extends AppCompatActivity {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 play2();
-
             }
         });
 
@@ -107,7 +93,6 @@ public class Book extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 playForForwardButton();
             }
         });
@@ -115,20 +100,15 @@ public class Book extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 playBackButton();
-
             }
         });
 
         soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
-
                 play();
-
             }
-
         });
 
         bookmarkButton.setOnClickListener(new View.OnClickListener() {
@@ -137,7 +117,6 @@ public class Book extends AppCompatActivity {
                 saveBookmark();
             }
         });
-
     }
 
     @Override
@@ -145,37 +124,26 @@ public class Book extends AppCompatActivity {
         soundTest.stop();
         super.onBackPressed();
         this.finish();
-
         Intent switchActivityIntent = new Intent(this, MainMenu.class);
         startActivity(switchActivityIntent);
-
     }
 
     private void play(){
         if (current_index < Audiobook.sounds.length - 1) {
             current_index++;
-
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest.start();
-
-
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-
                     play();
-
                 }
-
             });
-
         } else {
             current_index = 0;
-
-
             soundTest.stop();
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
@@ -183,17 +151,12 @@ public class Book extends AppCompatActivity {
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             startQuiz();
         }
-//        soundTest.start();
-
-
     }
 
     private void playForForwardButton(){
-
         soundTest.stop();
         if (current_index < Audiobook.sounds.length-1) {
             current_index++;
-
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
@@ -203,26 +166,17 @@ public class Book extends AppCompatActivity {
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-
                     playForForwardButton();
                 }
-
             });
-
-
         } else {
             current_index = 0;
-
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             startQuiz();
         }
-
-//        soundTest.start();
-
-
     }
 
     private void playBackButton(){
@@ -232,44 +186,22 @@ public class Book extends AppCompatActivity {
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
-
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             soundTest.start();
-
 
             soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
-
                     play();
-
-
                 }
-
             });
-
         } else {
-
             current_index = 0;
-            //soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
             txtView.setText(Audiobook.pages[current_index]);
             imageView.setImageDrawable(getResources().getDrawable(Audiobook.images[current_index]));
             pageNumberView.setText(Audiobook.pageNumbers[current_index]);
             soundTest = MediaPlayer.create(Book.this, Audiobook.sounds[current_index]);
-
-
-            /*soundTest.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mediaPlayer) {
-
-                    playBackButton();
-                    current_index++;
-
-                }
-
-            });*/
         }
-//        soundTest.start();
     }
 
     private void play2() {
@@ -279,19 +211,16 @@ public class Book extends AppCompatActivity {
     void saveBookmark (){
         String bookTitle = titleView.getText().toString();
         String pageNumber = pageNumberView.getText().toString();
-
         Bookmark bookmark = new Bookmark();
         bookmark.setBookTitle(bookTitle);
         bookmark.setPageNumber(pageNumber);
         bookmark.setTimestamp(Timestamp.now());
-
         saveBookmarkToFirebase(bookmark);
     }
 
     void saveBookmarkToFirebase(Bookmark bookmark){
         DocumentReference documentReference;
         documentReference = Utility.getCollectionReferenceForBookmarks().document();
-
         documentReference.set(bookmark).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -299,7 +228,6 @@ public class Book extends AppCompatActivity {
                     Utility.showToast(Book.this,"Bookmark added successfully");
                 }else {
                     Utility.showToast(Book.this,"Bookmark failed");
-
                 }
             }
         });

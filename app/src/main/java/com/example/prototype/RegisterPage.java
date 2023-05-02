@@ -2,7 +2,6 @@ package com.example.prototype;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -23,7 +21,6 @@ public class RegisterPage extends AppCompatActivity {
     TextView confirmPassword;
     ProgressBar progressBar;
     TextView directToLogin;
-
     Button registerButton;
 
     @Override
@@ -36,7 +33,6 @@ public class RegisterPage extends AppCompatActivity {
         confirmPassword = (TextView) findViewById(R.id.confirmPassword);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         directToLogin = (TextView) findViewById(R.id.textViewLogin);
-
         registerButton = (Button) findViewById(R.id.registerBtn);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -82,21 +78,16 @@ public class RegisterPage extends AppCompatActivity {
 
     void createAccountInFirebase (String email, String password){
         changeLoading(true);
-
         FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegisterPage.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
                     Utility.showToast(RegisterPage.this,"Account registered successfully, please Check email to verify");
-                    //Toast.makeText(RegisterPage.this,"Account registered successfully, please Check email to verify", Toast.LENGTH_SHORT).show();
                     firebaseAuth.getCurrentUser().sendEmailVerification();
                     firebaseAuth.signOut();
-                    //finish();
                 }else {
                     Utility.showToast(RegisterPage.this, task.getException().getLocalizedMessage());
-                    //Toast.makeText(RegisterPage.this, task.getException().getLocalizedMessage(), Toast.LENGTH_SHORT).show();
-
                 }
             }
         });

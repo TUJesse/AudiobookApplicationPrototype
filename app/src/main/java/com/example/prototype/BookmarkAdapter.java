@@ -36,9 +36,9 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
 
     @Override
     protected void onBindViewHolder(@androidx.annotation.NonNull BookmarkViewHolder holder, int position, @androidx.annotation.NonNull Bookmark bookmark) {
-        holder.titleTextView.setText(bookmark.bookTitle);
-        holder.pageTextView.setText(bookmark.pageNumber);
-        holder.timestampTextView.setText(Utility.timestampToString(bookmark.timestamp));
+        holder.titleTextView.setText(bookmark.getBookTitle());
+        holder.pageTextView.setText(bookmark.getPageNumber());
+        holder.timestampTextView.setText(Utility.timestampToString(bookmark.getTimestamp()));
 
         holder.itemView.setOnClickListener((view) ->{
             String docId = this.getSnapshots().getSnapshot(position).getId();
@@ -84,7 +84,6 @@ public class BookmarkAdapter extends FirestoreRecyclerAdapter<Bookmark, Bookmark
                 } else if (menuItem.getItemId() == R.id.deleteBookmark){
                     deleteBookmarkFromFirebase(docID);
                 }
-
                 return true;
             }
         });

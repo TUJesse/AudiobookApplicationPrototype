@@ -3,9 +3,9 @@ package com.example.prototype;
 import com.google.firebase.Timestamp;
 
 public class Bookmark {
-    String bookTitle;
-    String pageNumber;
-    Timestamp timestamp;
+    private String bookTitle;
+    private String pageNumber;
+    private Timestamp timestamp;
 
     public Bookmark() {
     }
